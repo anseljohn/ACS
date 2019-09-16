@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TipCalculator</string>
+    <string name="title">Bip Balculator</string>
+    <string name="costTitle">Cost</string>
 </resources>
