@@ -36,8 +36,40 @@
         android:id="@+id/dollarSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="204dp" />
+        android:text="@string/dollarSign"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/costInput"
+        app:layout_constraintEnd_toStartOf="@+id/costInput"
+        app:layout_constraintTop_toTopOf="@+id/costInput" />
+
+    <Spinner
+        android:id="@+id/tipSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        app:layout_constraintEnd_toEndOf="@+id/costInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/costInput"
+        app:layout_constraintTop_toBottomOf="@+id/costInput" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tipTitle"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tipSpinner"
+        app:layout_constraintEnd_toEndOf="@+id/tipSpinner"
+        app:layout_constraintStart_toStartOf="@+id/tipSpinner" />
+
+    <TextView
+        android:id="@+id/percentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/percentSign"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tipSpinner"
+        app:layout_constraintTop_toTopOf="@+id/tipSpinner"
+        tools:layout_editor_absoluteX="313dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
