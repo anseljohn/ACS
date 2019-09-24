@@ -34,7 +34,7 @@ public class SentenceSeeker extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                splitWords = sentenceInput.getText().toString().split(" ");
+                splitWords = sentenceInput.getText().toString().split("\\s+");
                 seekBarMax = splitWords.length;
                 seekBar.setMax(seekBarMax - 1);
             }
