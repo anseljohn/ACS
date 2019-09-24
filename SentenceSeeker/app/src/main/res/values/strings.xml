@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sentence Seeker</string>
+    <string name="typeSentence">Go ahead! Type a sentence!</string>
 </resources>
