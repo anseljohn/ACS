@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Spelling Game</string>
+    <string name="beginText">Begin!</string>
+    <string name="timeLeftText">Time left:</string>
+</resources>
