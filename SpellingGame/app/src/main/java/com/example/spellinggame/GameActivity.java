@@ -4,16 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
 
     private TextView timerTextView;
-    private ArrayList<Word> words = new ArrayList<>();
     private Word[] wordsArray = {new Word(false, "abcense"),
                                  new Word(true, "absence"),
                                  new Word(true, "intelligence"),
@@ -25,7 +24,16 @@ public class GameActivity extends AppCompatActivity {
                                  new Word(true, "underrate"),
                                  new Word(false, "underate"),
                                  new Word(true, "writing"),
-                                 new Word(false,"writeing"),};
+                                 new Word(false,"writeing"),
+                                 new Word(true, "indict"),
+                                 new Word(false, "indite"),
+                                 new Word(true, "liaison"),
+                                 new Word(false, "liason"),
+                                 new Word(true, "outrageous"),
+                                 new Word(false, "outragous"),
+                                 new Word(true, "tyranny"),
+                                 new Word(false, "tyrany")};
+    private List<Word> words = Arrays.asList(wordsArray);
 
     CountDownTimer timer;
 
