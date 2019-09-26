@@ -60,7 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="@string/radioSkip"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/radioIncorrectSelection"
@@ -69,6 +70,4 @@
             android:text="@string/radioIncorrect"
             android:textSize="20sp" />
     </RadioGroup>
-
-</>
 </androidx.constraintlayout.widget.ConstraintLayout>
