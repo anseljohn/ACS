@@ -39,11 +39,36 @@
         app:layout_constraintTop_toBottomOf="@+id/timerText" />
 
     <RadioGroup
-        android:layout_width="175dp"
-        android:layout_height="44dp"
+        android:layout_width="243dp"
+        android:layout_height="224dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/wordText"
-        app:layout_constraintStart_toStartOf="@+id/wordText"
-        app:layout_constraintTop_toBottomOf="@+id/wordText" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wordText"
+        app:layout_constraintVertical_bias="0.337">
+
+        <RadioButton
+            android:id="@+id/radioCorrectSelection"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:text="@string/radioCorrect"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radioSkipSelection"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/radioSkip"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radioIncorrectSelection"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:text="@string/radioIncorrect"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+</>
 </androidx.constraintlayout.widget.ConstraintLayout>
