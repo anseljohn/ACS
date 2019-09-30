@@ -4,15 +4,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
 
     private TextView timerTextView;
+    private TextView wordToSpellTextView;
+    private Button submitAnswerButton;
+    private int selectedRadioButtonId;
+    private View selectedRadioButton;
+    private RadioGroup radioButtonGroup;
+    private int wordsToGo;
+    private int wordsCorrect;
+    private Word wordToSpell;
+    private TextView wordsToGoTextView;
+    private TextView wordsCorrectTextView;
+
     private Word[] wordsArray = {new Word(false, "abcense"),
                                  new Word(true, "absence"),
                                  new Word(true, "intelligence"),
@@ -33,7 +49,7 @@ public class GameActivity extends AppCompatActivity {
                                  new Word(false, "outragous"),
                                  new Word(true, "tyranny"),
                                  new Word(false, "tyrany")};
-    private List<Word> words = Arrays.asList(wordsArray);
+    private ArrayList<Word> words = (ArrayList<Word>) Arrays.asList(wordsArray);
 
     CountDownTimer timer;
 
@@ -41,8 +57,17 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        timerTextView = findViewById(R.id.timerText);
 
+        wordsCorrect = 0;
+        wordToSpell = words.get((int) (Math.random() * 20));
+        wordsToGo = 20;
+        radioButtonGroup = findViewById(R.id.answerChoices);
+        submitAnswerButton = findViewById(R.id.submitAnswer);
+        timerTextView = findViewById(R.id.timerText);
+        wordToSpellTextView = findViewById(R.id.wordText);
+        wordToSpellTextView.setText(wordToSpell.word);
+        wordsCorrectTextView = findViewById(R.id.wordsCorrect);
+        wordsToGoTextView = findViewById(R.id.wordsToGo);
 
         timer = new CountDownTimer(300000, 1000) {
             @Override
@@ -58,5 +83,44 @@ public class GameActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Done!", Toast.LENGTH_SHORT).show();
             }
         }.start();
+
+        submitAnswerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedRadioButtonId = radioButtonGroup.getCheckedRadioButtonId();
+                selectedRadioButton = radioButtonGroup.findViewById(selectedRadioButtonId);
+                int selectedRadioButtonIndex = radioButtonGroup.indexOfChild(selectedRadioButton);
+                nextWord(selectedRadioButtonIndex);
+            }
+        });
+    }
+
+    public void nextWord(int selectedRadioButtonIndex) {
+        wordsToGo--;
+        if (wordToSpell.spelledCorrectly) {
+            if (selectedRadioButtonIndex == 0) {
+                wordsCorrect++;
+            } else if (selectedRadioButtonIndex == 2) {
+                end();
+            }
+        } else {
+            if (selectedRadioButtonIndex == 0) {
+                end();
+            } else if (selectedRadioButtonIndex == 2) {
+                wordsCorrect++;
+            }
+        }
+        words.remove(wordToSpell);
+        wordToSpell = words.get((int)(Math.random() * 20));
+        wordToSpellTextView.setText(wordToSpell.word);
+        String setWordsToGo = wordsToGo + "/20";
+        wordsToGoTextView.setText(setWordsToGo);
+        String setCorrectWords = wordsCorrect + "/20";
+        wordsCorrectTextView.setText(setCorrectWords);
+
+    }
+
+    public void end() {
+
     }
 }

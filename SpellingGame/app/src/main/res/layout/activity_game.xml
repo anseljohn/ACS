@@ -39,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/timerText" />
 
     <RadioGroup
+        android:id="@+id/answerChoices"
         android:layout_width="243dp"
         android:layout_height="224dp"
         android:textSize="20sp"
@@ -59,9 +60,9 @@
             android:id="@+id/radioSkipSelection"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:checked="true"
             android:text="@string/radioSkip"
-            android:textSize="20sp"
-            android:checked="true"/>
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioIncorrectSelection"
@@ -70,4 +71,43 @@
             android:text="@string/radioIncorrect"
             android:textSize="20sp" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/submitAnswer"
+        android:layout_width="240dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="92dp"
+        android:text="@string/submitText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/answerChoices"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/answerChoices" />
+
+    <TextView
+        android:id="@+id/wordsToGo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/timeLeftText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/wordsCorrectText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wordsCorrectText"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/submitAnswer"
+        app:layout_constraintTop_toBottomOf="@+id/submitAnswer" />
+
+    <TextView
+        android:id="@+id/wordsCorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        tools:layout_editor_absoluteX="211dp"
+        tools:layout_editor_absoluteY="674dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,4 +6,6 @@
     <string name="radioCorrect">Correct</string>
     <string name="radioSkip">Skip</string>
     <string name="radioIncorrect">Incorrect</string>
+    <string name="submitText">Submit!</string>
+    <string name="wordsCorrectText">Words correct: </string>
 </resources>
