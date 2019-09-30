@@ -2,6 +2,7 @@ package com.example.spellinggame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -49,12 +50,13 @@ public class GameActivity extends AppCompatActivity {
                                  new Word(false, "outragous"),
                                  new Word(true, "tyranny"),
                                  new Word(false, "tyrany")};
-    private ArrayList<Word> words = (ArrayList<Word>) Arrays.asList(wordsArray);
+    private ArrayList<Word> words = new ArrayList<>(Arrays.asList(wordsArray));
 
     CountDownTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("Got to oncreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
@@ -93,6 +95,7 @@ public class GameActivity extends AppCompatActivity {
                 nextWord(selectedRadioButtonIndex);
             }
         });
+        System.out.println("End create");
     }
 
     public void nextWord(int selectedRadioButtonIndex) {
@@ -111,7 +114,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }
         words.remove(wordToSpell);
-        wordToSpell = words.get((int)(Math.random() * 20));
+        wordToSpell = words.get((int)(Math.random() * wordsToGo));
         wordToSpellTextView.setText(wordToSpell.word);
         String setWordsToGo = wordsToGo + "/20";
         wordsToGoTextView.setText(setWordsToGo);
@@ -121,6 +124,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void end() {
-
+        Toast.makeText(this, "You lost you poopoo! You got " + wordsCorrect + "/20 correct!", Toast.LENGTH_LONG).show();
+        Intent main = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(main);
     }
 }
