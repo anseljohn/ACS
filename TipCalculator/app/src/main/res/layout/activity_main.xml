@@ -66,10 +66,13 @@
         android:id="@+id/percentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
         android:text="@string/percentSign"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/tipSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tipSpinner"
         app:layout_constraintTop_toTopOf="@+id/tipSpinner"
-        tools:layout_editor_absoluteX="313dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
