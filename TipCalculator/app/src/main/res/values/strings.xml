@@ -5,12 +5,4 @@
     <string name="dollarSign">$</string>
     <string name="tipTitle">Tip</string>
     <string name="percentSign">%</string>
-
-    <array name="tipPercentages">
-        <item>0.0</item>
-        <item>5.0</item>
-        <item>10.0</item>
-        <item>15.0</item>
-        <item>20.0</item>
-    </array>
 </resources>
