@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                 } else if (cost.getText().toString().isEmpty()) {
                     Log.println(Log.ASSERT, "Warning", "getting to is empty");
-                    cost.setText("");
+                    finalCost.setText("Final cost: $0.00");
                 }
 
             }
