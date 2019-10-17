@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     if (finalCostString.substring(0,1).equals(".")) {
                         finalCostString = "0" + finalCostString;
                     }
-                    finalCost.setText("$" + finalCostString);
+                    finalCost.setText("Final cost: $" + finalCostString);
 
                     split = cost.getText().toString().split("\\.");
                     if (cost.getText().toString().contains(".") && split.length == 2 && split[1].length() > 2) {
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 } else if (cost.getText().toString().isEmpty()) {
+                    Log.println(Log.ASSERT, "Warning", "getting to is empty");
                     cost.setText("");
                 }
 
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                     if (split[1].length() == 1) {
                         finalCostString += "0";
                     }
-                    finalCost.setText("$" + finalCostString);
+                    finalCost.setText("Final cost: $" + finalCostString);
                 }
             }
 
