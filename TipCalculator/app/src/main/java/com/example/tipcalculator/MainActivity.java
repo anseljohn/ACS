@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
                         finalCostString += "0";
                     }
                     finalCost.setText("Final cost: $" + finalCostString);
+                } else if (cost.getText().toString().isEmpty()) {
+                    finalCost.setText("Final cost: $0.00");
                 }
             }
 
