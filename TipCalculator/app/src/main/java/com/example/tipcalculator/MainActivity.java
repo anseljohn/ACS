@@ -42,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                double costValue = Double.parseDouble(cost.getText().toString());
+                double tipPercentage = Double.parseDouble(tipSpinner.getSelectedItem().toString());
+                Toast.makeText(getApplicationContext(), String.valueOf((costValue * tipPercentage) + costValue), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                double costValue = Double.parseDouble(cost.getText().toString());
-                double tipPercentage = Double.parseDouble(tipSpinner.getSelectedItem().toString());
-                Toast.makeText(getApplicationContext(), String.valueOf((costValue * tipPercentage) + costValue), Toast.LENGTH_SHORT).show();
             }
         });
     }

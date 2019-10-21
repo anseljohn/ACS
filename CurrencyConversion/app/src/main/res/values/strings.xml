@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Currency Conversion</string>
+    <string name="USDInputHint">$ USD</string>
+    <string name="convertButtonText">Convert to Rupees</string>
+</resources>
