@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     rupeesText.setText("₹ 0.00");
                 } else{
                     DecimalFormat format = new DecimalFormat("₹ ##.00");
-                    rupeesText.setText(format.format(71.53 * Double.parseDouble(USDInput.getText().toString())));
+                    rupeesText.setText(format.format(70.91 * Double.parseDouble(USDInput.getText().toString())));
                 }
             }
         });
