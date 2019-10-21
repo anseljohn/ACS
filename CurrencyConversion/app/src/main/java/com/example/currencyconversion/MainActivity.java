@@ -60,8 +60,12 @@ public class MainActivity extends AppCompatActivity {
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DecimalFormat format = new DecimalFormat("##.00");
-                rupeesText.setText(format.format(71.53 * Double.parseDouble(USDInput.getText().toString())));
+                if (USDInput.getText().toString().equals(".") || Double.parseDouble(USDInput.getText().toString()) == 0.0) {
+                    rupeesText.setText("₹ 0.00");
+                } else{
+                    DecimalFormat format = new DecimalFormat("₹ ##.00");
+                    rupeesText.setText(format.format(71.53 * Double.parseDouble(USDInput.getText().toString())));
+                }
             }
         });
 

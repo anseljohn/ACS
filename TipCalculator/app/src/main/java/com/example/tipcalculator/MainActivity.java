@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.DataSetObserver;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText cost;
     private Spinner tipSpinner;
     private TextView finalCost;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         tipSpinner = findViewById(R.id.tipSpinner);
         cost = findViewById(R.id.costInput);
         finalCost = findViewById(R.id.finalCost);
+        mp = MediaPlayer.create(this, R.raw.sound);
+        mp.start();
 
         CharSequence[] tipsArray = {"0.0", "5.0", "10.0", "15.0", "20.0"};
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, tipsArray);
@@ -94,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         finalCostString += "0";
                     }
                     finalCost.setText("Final cost: $" + finalCostString);
-                } else if (cost.getText().toString().isEmpty()) {
+                } else if (cost.getText().toString().isEmpty() || cost.getText().toString().equals(".")) {
                     finalCost.setText("Final cost: $0.00");
                 }
             }
