@@ -118,14 +118,15 @@ public class GameActivity extends AppCompatActivity {
         }
         if (wordsToGo == 0) {
             end();
+        } else {
+            words.remove(wordToSpell);
+            wordToSpell = words.get((int) (Math.random() * wordsToGo));
+            wordToSpellTextView.setText(wordToSpell.word);
+            String setWordsToGo = wordsToGo + "/20";
+            wordsToGoTextView.setText(setWordsToGo);
+            String setCorrectWords = wordsCorrect + "/20";
+            wordsCorrectTextView.setText(setCorrectWords);
         }
-        words.remove(wordToSpell);
-        wordToSpell = words.get((int)(Math.random() * wordsToGo));
-        wordToSpellTextView.setText(wordToSpell.word);
-        String setWordsToGo = wordsToGo + "/20";
-        wordsToGoTextView.setText(setWordsToGo);
-        String setCorrectWords = wordsCorrect + "/20";
-        wordsCorrectTextView.setText(setCorrectWords);
 
     }
 
