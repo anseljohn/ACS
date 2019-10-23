@@ -8,4 +8,5 @@
     <string name="radioIncorrect">Incorrect</string>
     <string name="submitText">Submit!</string>
     <string name="wordsCorrectText">Words correct: </string>
+    <string name="startAgainButton">Start Again!</string>
 </resources>

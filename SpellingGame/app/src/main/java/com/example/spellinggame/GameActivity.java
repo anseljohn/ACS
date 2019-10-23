@@ -122,7 +122,9 @@ public class GameActivity extends AppCompatActivity {
 
     public void end() {
         Toast.makeText(this, "You lost you poopoo! You got " + wordsCorrect + "/20 correct!", Toast.LENGTH_LONG).show();
-        Intent main = new Intent(getApplicationContext(), MainActivity.class);
+        Intent main = new Intent(getApplicationContext(), EndGame.class);
+        main.putExtra("score", wordsCorrect);
+//        setResult(RESULT_OK, main);
         startActivity(main);
     }
 }
