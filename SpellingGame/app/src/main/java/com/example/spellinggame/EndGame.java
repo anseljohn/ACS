@@ -11,13 +11,14 @@ import android.widget.TextView;
 public class EndGame extends AppCompatActivity {
 
 //        Intent gameActivityIntent = getIntent();
-        int wordsCorrect = getIntent().getIntExtra("score", 0);
+        int wordsCorrect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
 
+        wordsCorrect = GameActivity.wordsCorrect;
         TextView endScoreTextView = findViewById(R.id.endScore);
         endScoreTextView.setText("Score: " + wordsCorrect + "/20");
 

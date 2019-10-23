@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,12 +19,12 @@ public class GameActivity extends AppCompatActivity {
 
     private TextView timerTextView;
     private TextView wordToSpellTextView;
-    private Button submitAnswerButton;
+    private Switch submitAnswerSwitch;
     private int selectedRadioButtonId;
     private View selectedRadioButton;
     private RadioGroup radioButtonGroup;
     private int wordsToGo;
-    private int wordsCorrect;
+    public static int wordsCorrect = 0;
     private Word wordToSpell;
     private TextView wordsToGoTextView;
     private TextView wordsCorrectTextView;
@@ -61,14 +63,14 @@ public class GameActivity extends AppCompatActivity {
         wordToSpell = words.get((int) (Math.random() * 20));
         wordsToGo = 20;
         radioButtonGroup = findViewById(R.id.answerChoices);
-        submitAnswerButton = findViewById(R.id.submitAnswer);
+        submitAnswerSwitch = findViewById(R.id.submitSwitch);
         timerTextView = findViewById(R.id.timerText);
         wordToSpellTextView = findViewById(R.id.wordText);
         wordToSpellTextView.setText(wordToSpell.word);
         wordsCorrectTextView = findViewById(R.id.wordsCorrect);
         wordsToGoTextView = findViewById(R.id.wordsToGo);
 
-        timer = new CountDownTimer(300000, 1000) {
+        timer = new CountDownTimer(30000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 int seconds = (int) millisUntilFinished / 1000;
@@ -79,17 +81,20 @@ public class GameActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Toast.makeText(getApplicationContext(), "Done!", Toast.LENGTH_SHORT).show();
+                Intent toEndGame = new Intent(getApplicationContext(), EndGame.class);
+                startActivity(toEndGame);
             }
         }.start();
 
-        submitAnswerButton.setOnClickListener(new View.OnClickListener() {
+        submitAnswerSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectedRadioButtonId = radioButtonGroup.getCheckedRadioButtonId();
                 selectedRadioButton = radioButtonGroup.findViewById(selectedRadioButtonId);
                 int selectedRadioButtonIndex = radioButtonGroup.indexOfChild(selectedRadioButton);
                 nextWord(selectedRadioButtonIndex);
+                radioButtonGroup.check(R.id.radioSkipSelection);
+                submitAnswerSwitch.setChecked(false);
             }
         });
         System.out.println("End create");
@@ -109,6 +114,10 @@ public class GameActivity extends AppCompatActivity {
             } else if (selectedRadioButtonIndex == 2) {
                 wordsCorrect++;
             }
+
+        }
+        if (wordsToGo == 0) {
+            end();
         }
         words.remove(wordToSpell);
         wordToSpell = words.get((int)(Math.random() * wordsToGo));
@@ -123,8 +132,8 @@ public class GameActivity extends AppCompatActivity {
     public void end() {
         Toast.makeText(this, "You lost you poopoo! You got " + wordsCorrect + "/20 correct!", Toast.LENGTH_LONG).show();
         Intent main = new Intent(getApplicationContext(), EndGame.class);
-        main.putExtra("score", wordsCorrect);
-//        setResult(RESULT_OK, main);
+        main.putExtra("score", Integer.toString(wordsCorrect));
+        setResult(RESULT_OK, main);
         startActivity(main);
     }
 }

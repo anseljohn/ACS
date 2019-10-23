@@ -6,38 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
-    <TextView
-        android:id="@+id/timeLeftText"
-        android:layout_width="109dp"
-        android:layout_height="30dp"
-        android:text="@string/timeLeftText"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/timerText"
-        app:layout_constraintEnd_toStartOf="@+id/timerText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/timerText" />
-
-    <TextView
-        android:id="@+id/timerText"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="148dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/wordText"
-        android:layout_width="316dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="124dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timerText" />
-
     <RadioGroup
         android:id="@+id/answerChoices"
         android:layout_width="243dp"
@@ -72,17 +40,36 @@
             android:textSize="20sp" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/submitAnswer"
-        android:layout_width="240dp"
-        android:layout_height="68dp"
-        android:layout_marginBottom="92dp"
-        android:text="@string/submitText"
+    <Switch
+        android:id="@+id/submitSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/answerChoices"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/answerChoices"
-        app:layout_constraintTop_toBottomOf="@+id/answerChoices" />
+        app:layout_constraintTop_toBottomOf="@+id/answerChoices"
+        app:layout_constraintVertical_bias="0.382" />
+
+    <TextView
+        android:id="@+id/timeLeftText"
+        android:layout_width="109dp"
+        android:layout_height="30dp"
+        android:text="@string/timeLeftText"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/timerText"
+        app:layout_constraintEnd_toStartOf="@+id/timerText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timerText" />
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="120dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/wordsToGo"
@@ -90,31 +77,57 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/timeLeftText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/wordsCorrectText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="41dp"
         android:text="@string/wordsCorrectText"
         android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/submitAnswer"
-        app:layout_constraintTop_toBottomOf="@+id/submitAnswer" />
+        app:layout_constraintBottom_toTopOf="@+id/wordText"
+        app:layout_constraintStart_toStartOf="@+id/timeLeftText"
+        app:layout_constraintTop_toBottomOf="@+id/timeLeftText"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/wordsCorrect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17sp"
-        android:text="0/20"
+        android:layout_marginBottom="41dp"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="0/20"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/wordText"
+        app:layout_constraintEnd_toEndOf="@+id/timerText"
+        app:layout_constraintTop_toBottomOf="@+id/timerText"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/wordText"
+        android:layout_width="239dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="124dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.311"
-        app:layout_constraintStart_toEndOf="@+id/wordsCorrectText"
-        app:layout_constraintTop_toBottomOf="@+id/submitAnswer"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerText" />
+
+    <TextView
+        android:id="@+id/submitTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:text="@string/submitText"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/answerChoices"
+        app:layout_constraintTop_toBottomOf="@+id/answerChoices"
+        app:layout_constraintVertical_bias="0.419" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
