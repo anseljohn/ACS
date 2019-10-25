@@ -106,18 +106,18 @@ public class GameActivity extends AppCompatActivity {
             if (selectedRadioButtonIndex == 0) {
                 wordsCorrect++;
             } else if (selectedRadioButtonIndex == 2) {
-                end();
+                end(EndGame.class);
             }
         } else {
             if (selectedRadioButtonIndex == 0) {
-                end();
+                end(EndGame.class);
             } else if (selectedRadioButtonIndex == 2) {
                 wordsCorrect++;
             }
 
         }
         if (wordsToGo == 0) {
-            end();
+            end(Finished.class);
         } else {
             words.remove(wordToSpell);
             wordToSpell = words.get((int) (Math.random() * wordsToGo));
@@ -130,10 +130,13 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    public void end() {
-        Intent main = new Intent(getApplicationContext(), EndGame.class);
-        main.putExtra("score", Integer.toString(wordsCorrect));
-        setResult(RESULT_OK, main);
+//    public void finished() {
+//        Intent main = new Intent(getApplicationContext(), Finished.class);
+//        main.putExtra("score", Integer.toString)
+//    }
+
+    public void end(Class c) {
+        Intent main = new Intent(getApplicationContext(), c);
         startActivity(main);
     }
 }
