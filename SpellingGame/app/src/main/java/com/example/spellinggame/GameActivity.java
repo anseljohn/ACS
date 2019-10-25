@@ -70,7 +70,7 @@ public class GameActivity extends AppCompatActivity {
         wordsCorrectTextView = findViewById(R.id.wordsCorrect);
         wordsToGoTextView = findViewById(R.id.wordsToGo);
 
-        timer = new CountDownTimer(30000, 1000) {
+        timer = new CountDownTimer(300000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 int seconds = (int) millisUntilFinished / 1000;
@@ -131,7 +131,6 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void end() {
-        Toast.makeText(this, "You lost you poopoo! You got " + wordsCorrect + "/20 correct!", Toast.LENGTH_LONG).show();
         Intent main = new Intent(getApplicationContext(), EndGame.class);
         main.putExtra("score", Integer.toString(wordsCorrect));
         setResult(RESULT_OK, main);
