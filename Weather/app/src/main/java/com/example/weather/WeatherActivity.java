@@ -36,9 +36,9 @@ public class WeatherActivity extends AppCompatActivity {
         Random randomGenerator = new Random();
 
         weatherArrayList.add(new Weather(Weather.WeatherType.values()[randomGenerator.nextInt(3)]));
-        highTV.setText(weatherArrayList.get(currentIndex).getHighCurrentLow()[0] + "");
-        currentTV.setText(weatherArrayList.get(currentIndex).getHighCurrentLow()[1]);
-        lowTV.setText(weatherArrayList.get(currentIndex).getHighCurrentLow()[2]);
+        highTV.setText("102");//weatherArrayList.get(currentIndex).getHighCurrentLow()[0] + "");
+        currentTV.setText("88");//weatherArrayList.get(currentIndex).getHighCurrentLow()[1]);
+        lowTV.setText("35");//weatherArrayList.get(currentIndex).getHighCurrentLow()[2]);
 
         nextDayButton.setOnClickListener(new View.OnClickListener() {
             @Override
