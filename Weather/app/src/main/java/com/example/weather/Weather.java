@@ -13,7 +13,7 @@ public class Weather {
 
     private WeatherType weatherType;
     private String weatherImage;
-    private int[] highCurrentLow = new int[2];
+    private int[] highCurrentLow = new int[3];
 
     public Weather(WeatherType weatherType) {
         this.weatherType = weatherType;

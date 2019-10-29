@@ -8,14 +8,65 @@
 
     <ImageView
         android:id="@+id/currentWeather"
+        android:textSize="20sp"
         android:layout_width="408dp"
         android:layout_height="392dp"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentTemp"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/weatherpic" />
+
+    <TextView
+        android:id="@+id/highTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="227dp"
+        android:layout_marginTop="149dp"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/currentTemp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/currentTemp"
+        android:layout_width="1dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="172dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lowTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/currentTemp"
+        app:layout_constraintEnd_toEndOf="@+id/highTemp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/highTemp"
+        app:layout_constraintTop_toBottomOf="@+id/highTemp"
+        app:layout_constraintVertical_bias="0.617" />
+
+    <Button
+        android:id="@+id/nextWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="306dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="182dp"
+        android:text="@string/nextDayButton"
+        app:layout_constraintBottom_toTopOf="@+id/currentWeather"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
