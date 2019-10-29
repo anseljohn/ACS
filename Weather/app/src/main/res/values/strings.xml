@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="pshWhatText">Psh what? That\'s not a stock image...</string>
+</resources>
