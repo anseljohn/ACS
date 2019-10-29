@@ -16,7 +16,9 @@ public class WeatherActivity extends AppCompatActivity {
 
     private ArrayList<Weather> weatherArrayList = new ArrayList<>();
     private ImageView weatherImage;
-    private TextView[] highCurrentLowTextViews = new TextView[3];
+    private TextView highTV;
+    private TextView currentTV;
+    private TextView lowTV;
     private Button nextDayButton;
     private int currentIndex;
 
@@ -26,18 +28,17 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
 
 //        weatherImage = findViewById(R.id.currentWeather);
+        highTV = findViewById(R.id.highTemp);
+        currentTV = findViewById(R.id.currentTemp);
+        lowTV = findViewById(R.id.lowTemp);
         nextDayButton = findViewById(R.id.nextWeather);
         currentIndex = 0;
         Random randomGenerator = new Random();
 
-        highCurrentLowTextViews[0] = findViewById(R.id.highTemp);
-        highCurrentLowTextViews[1] = findViewById(R.id.currentTemp);
-        highCurrentLowTextViews[2] = findViewById(R.id.lowTemp);
-
         weatherArrayList.add(new Weather(Weather.WeatherType.values()[randomGenerator.nextInt(3)]));
-        for (int i = 0; i < highCurrentLowTextViews.length; i++) {
-            highCurrentLowTextViews[i].setText("hi");//weatherArrayList.get(currentIndex).getHighCurrentLow()[currentIndex]);
-        }
+        highTV.setText(weatherArrayList.get(currentIndex).getHighCurrentLow()[0] + "");
+        currentTV.setText(weatherArrayList.get(currentIndex).getHighCurrentLow()[1]);
+        lowTV.setText(weatherArrayList.get(currentIndex).getHighCurrentLow()[2]);
 
         nextDayButton.setOnClickListener(new View.OnClickListener() {
             @Override
