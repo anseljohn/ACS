@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        timer = new CountDownTimer(2000, 1000) {
+        timer = new CountDownTimer(1000, 1000) {
             @Override
             public void onTick(long l) {}
 
