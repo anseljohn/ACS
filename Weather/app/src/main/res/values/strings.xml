@@ -8,4 +8,6 @@
     <string name="dayText">Day:</string>
     <string name="upArrow">⬆</string>
     <string name="downArrow">⬇</string>
+
+    <string name="degF">℉</string>
 </resources>

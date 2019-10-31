@@ -10,8 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static android.icu.text.UnicodeSet.CASE;
-
 public class WeatherActivity extends AppCompatActivity {
 
     private ArrayList<Weather> weatherArrayList = new ArrayList<>();
@@ -47,6 +45,7 @@ public class WeatherActivity extends AppCompatActivity {
         lowTV = findViewById(R.id.lowTemp);
         nextDayButton = findViewById(R.id.nextWeather);
         day = findViewById(R.id.date);
+
 
         currentIndex = 0;
         addDay();
@@ -84,7 +83,7 @@ public class WeatherActivity extends AppCompatActivity {
         }
         setImagesInvisible();
         highTV.setText(getResources().getString(R.string.upArrow) + " " + weatherArrayList.get(currentIndex).getHighCurrentLow()[0] + "");
-        currentTV.setText(weatherArrayList.get(currentIndex).getHighCurrentLow()[1] + "");
+        currentTV.setText(weatherArrayList.get(currentIndex).getHighCurrentLow()[1] + getResources().getString(R.string.degF));
         lowTV.setText(getResources().getString(R.string.downArrow) + " " + weatherArrayList.get(currentIndex).getHighCurrentLow()[2]);
         switch (weatherArrayList.get(currentIndex).getWeatherType()) {
             case RAINY :
