@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Weather</string>
     <string name="pshWhatText">Psh what? That\'s not a stock image...</string>
-    <string name="nextDayButton">Next Day</string>
+    <string name="nextDayButton">⟶</string>
+    <string name="previousButton">⟵</string>
+    <string name="todayButton">Today</string>
+
+    <string name="dayText">Day:</string>
+    <string name="upArrow">⬆</string>
+    <string name="downArrow">⬇</string>
+
+    <string name="degF">℉</string>
 </resources>
