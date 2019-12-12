@@ -14,15 +14,20 @@ public class CompressionAssignment {
     public static String toBinaryString(String in) {
         byte[] bytes = in.getBytes();
         StringBuilder binary = new StringBuilder();
+        byte previousByte = bytes[bytes.length - 1];
         for (byte b : bytes)
         {
             int val = b;
+            if( b != previousByte) {
+                binary.append("00");
+            }
             for (int i = 0; i < 8; i++)
             {
                 binary.append((val & 128) == 0 ? 0 : 1);
                 val <<= 1;
             }
             binary.append(' ');
+            previousByte = b;
         }
         return String.valueOf(binary);
     }
