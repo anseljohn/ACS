@@ -2,42 +2,24 @@ package com.example.colorguesser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.text.Layout;
+import android.util.Log;
 import android.view.View;
-
-import java.util.Random;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    View v;
 
-    private CountDownTimer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        v = (Button) findViewById(R.id.button2);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        generateBackground();
-    }
-
-    public void generateBackground() {
-        final View bg = findViewById(R.id.layout);
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                bg.setBackgroundColor(Color.parseColor(rgbToHex(getRandomColor())));
-            }
-        };
-    }
-
-    public int[] getRandomColor() {
-        Random random = new Random();
-        return new int[] {random.nextInt(255), random.nextInt(255), random.nextInt(255)};
-    }
-
-    public String rgbToHex(int[] rgb) {
-        return String.format("#%02x%02x%02x", rgb[0], rgb[1], rgb[2]);
+        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[] {0x37FF92, 0x37FCFF});
+        gradientDrawable.setCornerRadius(0f);
+//        mainView.setBackground(gradientDrawable);
+        Log.e("BRUH", v.toString());
+        Log.e("BRUH2", gradientDrawable.toString());
     }
 }
