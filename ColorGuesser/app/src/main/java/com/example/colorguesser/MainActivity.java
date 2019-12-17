@@ -16,10 +16,5 @@ public class MainActivity extends AppCompatActivity {
         v = (Button) findViewById(R.id.button2);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[] {0x37FF92, 0x37FCFF});
-        gradientDrawable.setCornerRadius(0f);
-//        mainView.setBackground(gradientDrawable);
-        Log.e("BRUH", v.toString());
-        Log.e("BRUH2", gradientDrawable.toString());
     }
 }
