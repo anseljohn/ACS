@@ -25,10 +25,16 @@ public class Game extends AppCompatActivity {
 
     Button sub;
 
+    Color actual;
+    Color guess;
+    Pair p;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        actual = new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 
         rG = findViewById(R.id.redValue);
         gG = findViewById(R.id.greenValue);
@@ -44,9 +50,7 @@ public class Game extends AppCompatActivity {
         for (final EditText val : vals) {
             val.addTextChangedListener(new TextWatcher() {
                 @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -58,16 +62,14 @@ public class Game extends AppCompatActivity {
                 }
 
                 @Override
-                public void afterTextChanged(Editable s) {
-
-                }
+                public void afterTextChanged(Editable s) {}
             });
         }
 
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                p = new Pair(actual, guess);
             }
         });
 
