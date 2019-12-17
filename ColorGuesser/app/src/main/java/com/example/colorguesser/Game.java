@@ -1,6 +1,7 @@
 package com.example.colorguesser;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -8,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.graphics.Color;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,16 +27,21 @@ public class Game extends AppCompatActivity {
 
     Button sub;
 
-    Color actual;
-    Color guess;
+    com.example.colorguesser.Color actual;
+    com.example.colorguesser.Color guess;
     Pair p;
+
+    ConstraintLayout lay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        actual = new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+        lay = findViewById(R.id.mainLayout);
+        actual = new com.example.colorguesser.Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+
+        lay.setBackgroundColor(Color.parseColor(actual.toHex()));
 
         rG = findViewById(R.id.redValue);
         gG = findViewById(R.id.greenValue);

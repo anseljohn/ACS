@@ -17,6 +17,14 @@ public class Color {
                          Integer.valueOf( hex.substring( 5, 7 ), 16 ) );
     }
 
+    public static String toHex(Color c) {
+        return String.format("#%02x%02x%02x", c.r, c.g, c.b);
+    }
+
+    public String toHex() {
+        return toHex(this);
+    }
+
     public double distance(Color c) {
         return Math.abs(Math.sqrt(Math.pow(c.r - r, 2) + Math.pow(c.g - g, 2) + Math.pow(c.b - b, 2)));
     }
