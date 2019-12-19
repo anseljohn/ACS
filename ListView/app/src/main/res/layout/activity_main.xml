@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/playersText"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="205dp"
+        android:layout_marginEnd="309dp"
+        android:layout_marginRight="309dp"
+        android:layout_marginBottom="507dp"
+        android:text="Players" />
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="97dp"
+        android:layout_marginLeft="97dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:ems="10"
+        android:gravity="center|center_horizontal"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addPlayerButton"
+        android:layout_width="214dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/nameInput"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginRight="102dp"
+        android:enabled="false"
+        android:text="Add Player"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/nameInput"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/nameInput"
+        app:layout_constraintTop_toBottomOf="@+id/nameInput" />
+
+    <ListView
+        android:id="@+id/nameList"
+        android:layout_width="382dp"
+        android:layout_height="523dp"
+        android:layout_below="@+id/addPlayerButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="-24dp">
+
+    </ListView>
+
+</RelativeLayout>

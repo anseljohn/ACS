@@ -38,7 +38,7 @@ public class Game extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        lay = findViewById(R.id.mainLayout);
+        lay = findViewById(R.id.lay);
         actual = new com.example.colorguesser.Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 
         lay.setBackgroundColor(Color.parseColor(actual.toHex()));
