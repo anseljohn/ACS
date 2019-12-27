@@ -63,6 +63,7 @@ public class Game extends AppCompatActivity {
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if (!val.getText().toString().isEmpty()) {
                         filled[vals.indexOf(val)] = true;
+                        if (Integer.parseInt(val.getText().toString()) > 255) val.setText("255");
                     }
 
                     if (filled[0] && filled[1] && filled[2]) sub.setEnabled(true);
