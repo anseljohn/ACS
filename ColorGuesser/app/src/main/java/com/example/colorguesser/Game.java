@@ -3,6 +3,7 @@ package com.example.colorguesser;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.TargetApi;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,6 +12,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.graphics.Color;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONObject;
+
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -77,7 +87,22 @@ public class Game extends AppCompatActivity {
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                guess = new com.example.colorguesser.Color(Integer.parseInt(vals.get(0).getText().toString()),
+                                                           Integer.parseInt(vals.get(1).getText().toString()),
+                                                           Integer.parseInt(vals.get(2).getText().toString()));
+
                 p = new Pair(actual, guess);
+                GsonBuilder builder = new GsonBuilder();
+                builder.setPrettyPrinting();
+                Gson gson = builder.create();
+                try {
+                    FileWriter fw = new FileWriter("Scores.json");
+                    fw.write(gson.toJson(p));
+                    fw.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
         });
 
