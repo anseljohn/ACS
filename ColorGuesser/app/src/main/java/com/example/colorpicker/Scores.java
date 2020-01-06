@@ -19,6 +19,7 @@ public class Scores extends AppCompatActivity {
     private static ArrayList<Integer> bs;
     private static ArrayList<Integer> gs;
     private static ArrayList<Double> ds;
+
     private LinearLayout lays;
     private TextView avgTxt;
     private double avg;
@@ -57,8 +58,10 @@ public class Scores extends AppCompatActivity {
             txt.setTextColor(Color.rgb(255,255,255));
             txt.setTextSize((float)25);
             txt.setShadowLayer((float)1.5, 2 ,2, Color.rgb(0,0,0));
+
             lays.addView(txt);
             lays.setGravity(CENTER);
+
             avg += ds.get(i);
         }
         avg = avg/rs.size();
@@ -66,9 +69,9 @@ public class Scores extends AppCompatActivity {
     }
 
     public void onClick( View v ) {
-        Intent openMainActivity = new Intent(Scores.this, MainActivity.class);
-        openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivityIfNeeded(openMainActivity, 0);
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivityIfNeeded(i, 0);
     }
 
     public static ArrayList<Integer> getrs() {
