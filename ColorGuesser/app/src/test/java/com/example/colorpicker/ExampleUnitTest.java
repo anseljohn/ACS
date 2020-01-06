@@ -1,4 +1,4 @@
-package com.example.colorguesser;
+package com.example.colorpicker;
 
 import org.junit.Test;
 

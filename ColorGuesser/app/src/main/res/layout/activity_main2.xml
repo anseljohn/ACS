@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mylayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main2Activity">
+
+
+    <TextView
+        android:id="@+id/titleTxtBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:text="Enter Your Guess!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/redEditTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:hint="0-255"
+        android:inputType="numberSigned"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="@+id/titleTxtBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTxtBox" />
+
+    <EditText
+        android:id="@+id/greenEditTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="0-255"
+        android:inputType="numberSigned"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="@+id/redEditTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/redEditTxt"
+        app:layout_constraintTop_toBottomOf="@+id/redEditTxt" />
+
+    <EditText
+        android:id="@+id/blueEditTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="0-255"
+        android:inputType="numberSigned"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="@+id/greenEditTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/greenEditTxt"
+        app:layout_constraintTop_toBottomOf="@+id/greenEditTxt" />
+
+    <TextView
+        android:id="@+id/predRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Predicted Red Value:"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toTopOf="@+id/redEditTxt"
+        app:layout_constraintStart_toStartOf="@+id/redEditTxt" />
+
+    <TextView
+        android:id="@+id/predGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        android:text="Enter Predicted Green Value:"
+        app:layout_constraintBottom_toTopOf="@+id/greenEditTxt"
+        app:layout_constraintStart_toStartOf="@+id/greenEditTxt" />
+
+    <TextView
+        android:id="@+id/predBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Predicted Blue Value:"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toTopOf="@+id/blueEditTxt"
+        app:layout_constraintStart_toStartOf="@+id/blueEditTxt" />
+
+    <Button
+        android:id="@+id/guessBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:onClick="subOnClick"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blueEditTxt" />
+
+    <Button
+        android:id="@+id/menuBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="25dp"
+        android:onClick="mainMenuClick"
+        android:text="Main Menu"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/nxtBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
+        android:onClick="nxtClick"
+        android:text="Next Color"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="TextView"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blueEditTxt" />
+
+    <TextView
+        android:id="@+id/actRedValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="@+id/redEditTxt"
+        app:layout_constraintEnd_toEndOf="@+id/actGreenValue"
+        app:layout_constraintStart_toStartOf="@+id/actGreenValue"
+        app:layout_constraintTop_toBottomOf="@+id/predRed" />
+
+    <TextView
+        android:id="@+id/actGreenValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="@+id/greenEditTxt"
+        app:layout_constraintEnd_toEndOf="@+id/actBlueValue"
+        app:layout_constraintStart_toStartOf="@+id/actBlueValue"
+        app:layout_constraintTop_toBottomOf="@+id/predGreen" />
+
+    <TextView
+        android:id="@+id/actBlueValue"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="@+id/blueEditTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/blueEditTxt"
+        app:layout_constraintTop_toBottomOf="@+id/predBlue" />
+
+    <TextView
+        android:id="@+id/showText"
+        android:layout_width="81dp"
+        android:layout_height="33dp"
+        android:gravity="center"
+        android:text="Actual RGB Values:"
+        android:visibility="invisible"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="@+id/predRed"
+        app:layout_constraintEnd_toEndOf="@+id/actRedValue"
+        app:layout_constraintStart_toStartOf="@+id/actRedValue" />
+
+
+    <ImageView
+        android:id="@+id/tumbs"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/nxtBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blueEditTxt"
+        app:srcCompat="@drawable/thumbup" />
+
+    <TextView
+        android:id="@+id/gfr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:visibility="invisible"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tumbs"
+        app:layout_constraintStart_toStartOf="@+id/tumbs"
+        app:layout_constraintTop_toBottomOf="@+id/tumbs" />
+
+    <TextView
+        android:id="@+id/distanceTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.5"
+        android:textColor="#fff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/tumbs"
+        app:layout_constraintEnd_toEndOf="@+id/tumbs"
+        app:layout_constraintStart_toStartOf="@+id/tumbs" />
+</androidx.constraintlayout.widget.ConstraintLayout>
