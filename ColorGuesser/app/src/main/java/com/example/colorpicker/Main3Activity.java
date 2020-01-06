@@ -38,17 +38,17 @@ public class Main3Activity extends AppCompatActivity {
 
         lays = findViewById(R.id.layout);
 
-        reds = Main2Activity.getReds();
-        blues = Main2Activity.getBluess();
-        greens = Main2Activity.getGreens();
-        dists = Main2Activity.getDists();
+        reds = Game.getReds();
+        blues = Game.getBluess();
+        greens = Game.getGreens();
+        dists = Game.getDists();
 
         avg = 0;
         try {
             update();
         }
         catch (Exception e) {
-            avgTxt.setText("No data to report");
+            avgTxt.setText("No games. Go play some!");
         }
 
     }

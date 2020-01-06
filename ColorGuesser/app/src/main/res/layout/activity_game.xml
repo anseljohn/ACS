@@ -5,7 +5,7 @@
     android:id="@+id/mylayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main2Activity">
+    tools:context=".Game">
 
 
     <TextView
@@ -19,7 +19,7 @@
         android:shadowRadius="1.5"
         android:textColor="#fff"
         android:gravity="center"
-        android:text="Enter Your Guess!"
+        android:text="Enter your guesses:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,7 +131,7 @@
         app:layout_constraintTop_toBottomOf="@+id/blueEditTxt" />
 
     <Button
-        android:id="@+id/menuBtn"
+        android:id="@+id/menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -144,7 +144,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/nxtBtn"
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
@@ -244,14 +244,14 @@
         android:shadowRadius="1.5"
         android:textColor="#fff"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/nxtBtn"
+        app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blueEditTxt"
         app:srcCompat="@drawable/thumbup" />
 
     <TextView
-        android:id="@+id/gfr"
+        android:id="@+id/goodworse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
