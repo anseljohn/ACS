@@ -2,24 +2,18 @@ package com.example.colorpicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import static android.view.Gravity.CENTER;
-import static android.view.Gravity.FILL;
 
-public class Main3Activity extends AppCompatActivity {
+public class Scores extends AppCompatActivity {
 
     private static ArrayList<Integer> rs;
     private static ArrayList<Integer> bs;
@@ -32,7 +26,7 @@ public class Main3Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_scores);
 
         avgTxt = findViewById(R.id.avgTxtView);
 
@@ -68,11 +62,11 @@ public class Main3Activity extends AppCompatActivity {
             avg += ds.get(i);
         }
         avg = avg/rs.size();
-        avgTxt.setText("Average distance off of " + (Math.round(avg * 100.0)/100.0));
+        avgTxt.setText("Average: " + (Math.round(avg * 100.0)/100.0));
     }
 
     public void onClick( View v ) {
-        Intent openMainActivity = new Intent(Main3Activity.this, MainActivity.class);
+        Intent openMainActivity = new Intent(Scores.this, MainActivity.class);
         openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivityIfNeeded(openMainActivity, 0);
     }

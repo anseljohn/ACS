@@ -203,6 +203,10 @@ public class Game extends AppCompatActivity {
         rv.setText("Red Guess");
         gv.setText("Green Guess");
         bv.setText("Blue Guess");
+
+        for (EditText e : colors) {
+            e.setText("");
+        }
         red = (int) (Math.random() * 256);
         green = (int) (Math.random() * 256);
         blue = (int) (Math.random() * 256);
@@ -234,10 +238,10 @@ public class Game extends AppCompatActivity {
     public void update() {
 
         try {
-            rs = Main3Activity.getrs();
-            gs = Main3Activity.getrgs();
-            bs = Main3Activity.getbs();
-            ds = Main3Activity.getds();
+            rs = Scores.getrs();
+            gs = Scores.getrgs();
+            bs = Scores.getbs();
+            ds = Scores.getds();
         } catch (Exception e) {
             e.printStackTrace();
         }

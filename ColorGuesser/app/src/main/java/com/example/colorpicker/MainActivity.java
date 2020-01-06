@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         results.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Main3Activity.class);
+                Intent i = new Intent(getApplicationContext(), Scores.class);
                 startActivity(i);
             }
         });
