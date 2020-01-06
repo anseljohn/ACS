@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Game extends AppCompatActivity {
@@ -124,7 +125,8 @@ public class Game extends AppCompatActivity {
                 int r = red - Integer.parseInt(re.getText().toString());
                 int g = green - Integer.parseInt(ge.getText().toString());
                 int b = blue - Integer.parseInt(be.getText().toString());
-                double dist = Math.sqrt((Math.pow(r, 2) + Math.pow(g, 2) + Math.pow(b, 2)));
+                double dist = Math.sqrt((Math.pow(r, 2.0) + Math.pow(g, 2.0) + Math.pow(b, 2.0)));
+                dist = Math.round(dist * 100.0) / 100.0;
                 avg = 0;
                 for (int i = 0; i < ds.size(); i++) {
                     avg += ds.get(i);
@@ -134,11 +136,11 @@ public class Game extends AppCompatActivity {
                 if (dist < avg) {
                     resultt.setText("Better than your average");
                     goodbad.setImageResource(R.drawable.smile);
-                    distt.setText("Your guess was a distance of " + Math.round(dist) + " off.");
+                    distt.setText("Your guess was a distance of " + dist+ " off.");
                 } else {
                     resultt.setText("Worse than your average!");
                     goodbad.setImageResource(R.drawable.frown);
-                    distt.setText("Your guess was a distance of " + Math.round(dist) + " off.");
+                    distt.setText("Your guess was a distance of " + dist + " off.");
                 }
                 resultt.setVisibility(View.VISIBLE);
                 goodbad.setVisibility(View.VISIBLE);

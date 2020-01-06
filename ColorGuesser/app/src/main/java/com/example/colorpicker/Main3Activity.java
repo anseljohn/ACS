@@ -56,7 +56,7 @@ public class Main3Activity extends AppCompatActivity {
     public void update() {
         for ( int i = 0; i < rs.size(); i++ ) {
             TextView txt = new TextView(this);
-            txt.setText(Math.round(ds.get(i)) + "");
+            txt.setText(ds.get(i) + "");
             txt.setBackgroundColor(Color.rgb(rs.get(i),gs.get(i),bs.get(i)));
             txt.setGravity(CENTER);
             txt.setHeight(100);
@@ -68,7 +68,7 @@ public class Main3Activity extends AppCompatActivity {
             avg += ds.get(i);
         }
         avg = avg/rs.size();
-        avgTxt.setText("Average distance off of " + Math.round(avg));
+        avgTxt.setText("Average distance off of " + (Math.round(avg * 100.0)/100.0));
     }
 
     public void onClick( View v ) {
