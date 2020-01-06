@@ -21,10 +21,10 @@ import static android.view.Gravity.FILL;
 
 public class Main3Activity extends AppCompatActivity {
 
-    private static ArrayList<Integer> reds;
-    private static ArrayList<Integer> blues;
-    private static ArrayList<Integer> greens;
-    private static ArrayList<Double> dists;
+    private static ArrayList<Integer> rs;
+    private static ArrayList<Integer> bs;
+    private static ArrayList<Integer> gs;
+    private static ArrayList<Double> ds;
     private LinearLayout lays;
     private TextView avgTxt;
     private double avg;
@@ -38,10 +38,10 @@ public class Main3Activity extends AppCompatActivity {
 
         lays = findViewById(R.id.layout);
 
-        reds = Game.getReds();
-        blues = Game.getBluess();
-        greens = Game.getGreens();
-        dists = Game.getDists();
+        rs = Game.getrs();
+        bs = Game.getbss();
+        gs = Game.getgs();
+        ds = Game.getds();
 
         avg = 0;
         try {
@@ -54,10 +54,10 @@ public class Main3Activity extends AppCompatActivity {
     }
 
     public void update() {
-        for ( int i = 0; i < reds.size(); i++ ) {
+        for ( int i = 0; i < rs.size(); i++ ) {
             TextView txt = new TextView(this);
-            txt.setText(Math.round(dists.get(i)) + "");
-            txt.setBackgroundColor(Color.rgb(reds.get(i),greens.get(i),blues.get(i)));
+            txt.setText(Math.round(ds.get(i)) + "");
+            txt.setBackgroundColor(Color.rgb(rs.get(i),gs.get(i),bs.get(i)));
             txt.setGravity(CENTER);
             txt.setHeight(100);
             txt.setTextColor(Color.rgb(255,255,255));
@@ -65,9 +65,9 @@ public class Main3Activity extends AppCompatActivity {
             txt.setShadowLayer((float)1.5, 2 ,2, Color.rgb(0,0,0));
             lays.addView(txt);
             lays.setGravity(CENTER);
-            avg += dists.get(i);
+            avg += ds.get(i);
         }
-        avg = avg/reds.size();
+        avg = avg/rs.size();
         avgTxt.setText("Average distance off of " + Math.round(avg));
     }
 
@@ -77,18 +77,18 @@ public class Main3Activity extends AppCompatActivity {
         startActivityIfNeeded(openMainActivity, 0);
     }
 
-    public static ArrayList<Integer> getReds() {
-        return reds;
+    public static ArrayList<Integer> getrs() {
+        return rs;
     }
 
-    public static ArrayList<Integer> getrGreens() {
-        return greens;
+    public static ArrayList<Integer> getrgs() {
+        return gs;
     }
-    public static ArrayList<Integer> getBlues() {
-        return blues;
+    public static ArrayList<Integer> getbs() {
+        return bs;
     }
-    public static ArrayList<Double> getDists() {
-        return dists;
+    public static ArrayList<Double> getds() {
+        return ds;
     }
 
 }

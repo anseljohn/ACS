@@ -17,32 +17,37 @@ import java.util.ArrayList;
 
 public class Game extends AppCompatActivity {
 
-    private EditText re;
-    private EditText ge;
-    private EditText be;
-    private TextView rt;
-    private TextView gt;
-    private TextView bt;
-    private TextView actualtv;
-    private TextView rv;
-    private TextView gv;
-    private TextView bv;
-    private Button submit;
-    private Button menu;
-    private Button next;
-    private TextView title;
-    private int red;
-    private int green;
-    private int blue;
-    private ConstraintLayout bg;
-    private static ArrayList<Integer> reds;
-    private static ArrayList<Integer> greens;
-    private static ArrayList<Integer> blues;
-    private static ArrayList<Double> dists;
-    private double avg;
-    private TextView resultt;
-    private ImageView thumbs;
-    private TextView distt;
+     EditText re;
+     EditText ge;
+     EditText be;
+
+     TextView rt;
+     TextView gt;
+     TextView bt;
+
+     TextView actualtv;
+     TextView rv;
+     TextView gv;
+     TextView bv;
+
+     Button submit;
+     Button menu;
+     Button next;
+
+     static ArrayList<Integer> rs;
+     static ArrayList<Integer> gs;
+     static ArrayList<Integer> bs;
+     static ArrayList<Double> ds;
+
+     TextView resultt;
+     ImageView goodbad;
+     TextView distt;
+     ConstraintLayout bg;
+
+     double avg;
+     int red;
+     int green;
+     int blue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,42 +56,41 @@ public class Game extends AppCompatActivity {
 
         bg = findViewById(R.id.mylayout);
 
-        thumbs = findViewById(R.id.tumbs);
-        resultt = findViewById(R.id.goodworse);
-        distt = findViewById(R.id.distanceTxtView);
+        re = findViewById(R.id.rg);
+        ge = findViewById(R.id.gg);
+        be = findViewById(R.id.bg);
 
+        rv = findViewById(R.id.rgt);
+        gv = findViewById(R.id.ggt);
+        bv = findViewById(R.id.bgt);
+
+        rt = findViewById(R.id.ra);
+        gt = findViewById(R.id.ga);
+        bt = findViewById(R.id.ba);
+
+        menu = findViewById(R.id.menu);
         next = findViewById(R.id.next);
         menu = findViewById(R.id.menu);
 
-        re = findViewById(R.id.redEditTxt);
-        ge = findViewById(R.id.greenEditTxt);
-        be = findViewById(R.id.blueEditTxt);
+        submit = findViewById(R.id.submit);
+        actualtv = findViewById(R.id.actt);
 
-        rv = findViewById(R.id.predRed);
-        gv = findViewById(R.id.predGreen);
-        bv = findViewById(R.id.predBlue);
-        rt = findViewById(R.id.actRedValue);
-        gt = findViewById(R.id.actGreenValue);
-        bt = findViewById(R.id.actBlueValue);
-        title = findViewById(R.id.titleTxtBox);
-        actualtv = findViewById(R.id.showText);
-
-        submit = findViewById(R.id.guessBTN);
-        menu = findViewById(R.id.menu);
+        goodbad = findViewById(R.id.goodbad);
+        resultt = findViewById(R.id.goodworse);
+        distt = findViewById(R.id.distanceTxtView);
 
         red = (int)(Math.random()*256);
         green = (int)(Math.random()*256);
         blue = (int)(Math.random()*256);
-
         bg.setBackgroundColor(Color.rgb(red,green,blue));
 
         update();
 
-        if ( reds == null ) {
-            reds = new ArrayList<>();
-            greens = new ArrayList<>();
-            blues = new ArrayList<>();
-            dists = new ArrayList<>();
+        if (rs == null) {
+            rs = new ArrayList<>();
+            gs = new ArrayList<>();
+            bs = new ArrayList<>();
+            ds = new ArrayList<>();
         }
 
         re.setOnClickListener(new View.OnClickListener() {
@@ -98,17 +102,17 @@ public class Game extends AppCompatActivity {
 
     }
 
-    public void subOnClick ( View v ) {
-        if ( !re.getText().toString().equals("") || !ge.getText().toString().equals("") || !be.getText().toString().equals("") )  {
-            if ( Integer.parseInt(re.getText().toString()) < 255 || Integer.parseInt(ge.getText().toString()) < 255 || Integer.parseInt(be.getText().toString() ) < 255 ) {
+    public void subOnClick(View v) {
+        if (!re.getText().toString().equals("") || !ge.getText().toString().equals("") || !be.getText().toString().equals(""))  {
+            if (Integer.parseInt(re.getText().toString()) < 255 || Integer.parseInt(ge.getText().toString()) < 255 || Integer.parseInt(be.getText().toString()) < 255) {
                 System.out.println(re.getText().toString());
-                title.setVisibility(View.INVISIBLE);
                 rt.setText(red + "");
                 gt.setText(green + "");
                 bt.setText(blue + "");
                 rv.setText("Your Predicted Red Value:");
                 gv.setText("Your Predicted Green Value:");
                 bv.setText("Your Predicted Blue Value:");
+
                 actualtv.setVisibility(View.VISIBLE);
                 rt.setVisibility(View.VISIBLE);
                 gt.setVisibility(View.VISIBLE);
@@ -116,31 +120,34 @@ public class Game extends AppCompatActivity {
                 menu.setVisibility(View.VISIBLE);
                 next.setVisibility(View.VISIBLE);
                 submit.setVisibility(View.INVISIBLE);
+
                 int r = red - Integer.parseInt(re.getText().toString());
                 int g = green - Integer.parseInt(ge.getText().toString());
                 int b = blue - Integer.parseInt(be.getText().toString());
                 double dist = Math.sqrt((Math.pow(r, 2) + Math.pow(g, 2) + Math.pow(b, 2)));
                 avg = 0;
-                for (int i = 0; i < dists.size(); i++) {
-                    avg += dists.get(i);
+                for (int i = 0; i < ds.size(); i++) {
+                    avg += ds.get(i);
                 }
-                avg = avg / dists.size();
+                avg = avg / ds.size();
+
                 if (dist < avg) {
-                    resultt.setText("You did better than your average!");
-                    thumbs.setImageResource(R.drawable.thumbup);
-                    distt.setText("You guess was a distance of " + Math.round(dist) + " off!");
+                    resultt.setText("Better than your average");
+                    goodbad.setImageResource(R.drawable.smile);
+                    distt.setText("Your guess was a distance of " + Math.round(dist) + " off.");
                 } else {
-                    resultt.setText("You did worse than your average!");
-                    thumbs.setImageResource(R.drawable.thumbdown);
-                    distt.setText("You guess was a distance of " + Math.round(dist) + " off!");
+                    resultt.setText("Worse than your average!");
+                    goodbad.setImageResource(R.drawable.frown);
+                    distt.setText("Your guess was a distance of " + Math.round(dist) + " off.");
                 }
                 resultt.setVisibility(View.VISIBLE);
-                thumbs.setVisibility(View.VISIBLE);
+                goodbad.setVisibility(View.VISIBLE);
                 distt.setVisibility(View.VISIBLE);
-                reds.add(red);
-                greens.add(green);
-                blues.add(blue);
-                dists.add(dist);
+                
+                rs.add(red);
+                gs.add(green);
+                bs.add(blue);
+                ds.add(dist);
             }
             else {
                 Toast.makeText(this, "Please enter valid guesses!", Toast.LENGTH_LONG).show();
@@ -151,8 +158,7 @@ public class Game extends AppCompatActivity {
         }
     }
 
-    public void nxtClick ( View v ) {
-        title.setText("Enter Your Guess!");
+    public void next(View v) {
         actualtv.setVisibility(View.INVISIBLE);
         rt.setVisibility(View.INVISIBLE);
         gt.setVisibility(View.INVISIBLE);
@@ -160,11 +166,12 @@ public class Game extends AppCompatActivity {
         menu.setVisibility(View.INVISIBLE);
         next.setVisibility(View.INVISIBLE);
         resultt.setVisibility(View.INVISIBLE);
-        thumbs.setVisibility(View.INVISIBLE);
+        goodbad.setVisibility(View.INVISIBLE);
         distt.setVisibility(View.INVISIBLE);
-        rv.setText("Enter Predicted Red Value:");
-        gv.setText("Enter Predicted Green Value:");
-        bv.setText("Enter Predicted Blue Value:");
+
+        rv.setText("Red Guess");
+        gv.setText("Green Guess");
+        bv.setText("Blue Guess");
         red = (int)(Math.random()*256);
         green = (int)(Math.random()*256);
         blue = (int)(Math.random()*256);
@@ -172,37 +179,37 @@ public class Game extends AppCompatActivity {
         bg.setBackgroundColor(Color.rgb(red,green,blue));
     }
 
-    public void mainMenuClick( View v ) {
+    public void menu(View v) {
         Intent myIntent = new Intent(this, MainActivity.class);
-        Game.this.startActivity(myIntent);
+        startActivity(myIntent);
     }
 
-    public static ArrayList<Integer> getReds() {
-        return reds;
+    public static ArrayList<Integer> getrs() {
+        return rs;
     }
 
-    public static ArrayList<Integer> getGreens() {
-        return greens;
+    public static ArrayList<Integer> getgs() {
+        return gs;
     }
 
-    public static ArrayList<Integer> getBluess() {
-        return blues;
+    public static ArrayList<Integer> getbss() {
+        return bs;
     }
 
-    public static ArrayList<Double> getDists() {
-        return dists;
+    public static ArrayList<Double> getds() {
+        return ds;
     }
 
     public void update() {
 
         try {
-            reds = Main3Activity.getReds();
-            greens = Main3Activity.getrGreens();
-            blues = Main3Activity.getBlues();
-            dists = Main3Activity.getDists();
+            rs = Main3Activity.getrs();
+            gs = Main3Activity.getrgs();
+            bs = Main3Activity.getbs();
+            ds = Main3Activity.getds();
         }
-        catch ( Exception e ) {
-
+        catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
