@@ -110,7 +110,7 @@ public class Main2Activity extends AppCompatActivity {
         if ( !redEdt.getText().toString().equals("") || !greenEdt.getText().toString().equals("") || !blueEdt.getText().toString().equals("") )  {
             if ( Integer.parseInt(redEdt.getText().toString()) < 255 || Integer.parseInt(greenEdt.getText().toString()) < 255 || Integer.parseInt(blueEdt.getText().toString() ) < 255 ) {
                 System.out.println(redEdt.getText().toString());
-                title.setText("How'd you do?");
+                title.setVisibility(View.INVISIBLE);
                 redTxt.setText(red + "");
                 greenTxt.setText(green + "");
                 blueTxt.setText(blue + "");
