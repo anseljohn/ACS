@@ -43,7 +43,6 @@ public class Scores extends AppCompatActivity {
             update();
         }
         catch (Exception e) {
-            avgTxt.setText("No games. Go play some!");
         }
 
     }
