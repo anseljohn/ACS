@@ -84,8 +84,9 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="1.5"
+        android:textSize="20sp"
         android:text="Red Guess"
-        android:textColor="#fff"
+        android:textColor="#ff0000"
         app:layout_constraintBottom_toTopOf="@+id/rg"
         app:layout_constraintStart_toStartOf="@+id/rg" />
 
@@ -98,7 +99,8 @@
         android:shadowDy="2"
         android:shadowRadius="1.5"
         android:text="Green Guess"
-        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textColor="#00ff00"
         app:layout_constraintBottom_toTopOf="@+id/gg"
         app:layout_constraintStart_toStartOf="@+id/gg" />
 
@@ -110,8 +112,9 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="1.5"
+        android:textSize="20sp"
         android:text="Blue Guess"
-        android:textColor="#fff"
+        android:textColor="#0000ff"
         app:layout_constraintBottom_toTopOf="@+id/bg"
         app:layout_constraintStart_toStartOf="@+id/bg" />
 
@@ -147,7 +150,7 @@
         android:layout_marginRight="25dp"
         android:layout_marginBottom="25dp"
         android:onClick="next"
-        android:text="Next Color"
+        android:text="Next"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -276,4 +279,15 @@
         app:layout_constraintBottom_toTopOf="@+id/goodbad"
         app:layout_constraintEnd_toEndOf="@+id/goodbad"
         app:layout_constraintStart_toStartOf="@+id/goodbad" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="427dp"
+        android:layout_height="102dp"
+        android:background="@color/grayBottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goodworse"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

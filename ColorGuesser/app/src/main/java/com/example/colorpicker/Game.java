@@ -77,6 +77,14 @@ public class Game extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (e.getText().toString().contains("-")) {
+                        String[] str = e.getText().toString().split("-");
+                        if (str.length > 1) {
+                            e.setText(e.getText().toString().split("-")[1]);
+                        } else {
+                            e.setText("");
+                        }
+                    }
                     if (!e.getText().toString().isEmpty() || e.getText().toString().length() > 0) {
                         filled[colors.indexOf(e)] = true;
                         if (Integer.parseInt(e.getText().toString()) > 255) {
