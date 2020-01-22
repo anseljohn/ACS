@@ -20,35 +20,28 @@ import java.util.ArrayList;
 
 public class Game extends AppCompatActivity {
 
-    EditText re;
-    EditText ge;
-    EditText be;
     ArrayList<EditText> colors = new ArrayList<>();
     boolean[] filled = new boolean[]{false, false, false};
-
-    TextView rt;
-    TextView gt;
-    TextView bt;
-
-    TextView actualtv;
-    TextView rv;
-    TextView gv;
-    TextView bv;
-
-    Button submit;
-    Button menu;
-    Button next;
-
     static ArrayList<Integer> rs;
     static ArrayList<Integer> gs;
     static ArrayList<Integer> bs;
     static ArrayList<Double> ds;
-
+    EditText re;
+    EditText ge;
+    EditText be;
+    TextView rt;
+    TextView gt;
+    TextView bt;
+    TextView actualtv;
+    TextView rv;
+    TextView gv;
+    TextView bv;
     TextView resultt;
     TextView distt;
-    ImageView goodbad;
+    Button submit;
+    Button menu;
+    Button next;
     ConstraintLayout bg;
-
     double avg;
     int red;
     int green;
@@ -122,8 +115,6 @@ public class Game extends AppCompatActivity {
         submit = findViewById(R.id.submit);
         submit.setEnabled(false);
         actualtv = findViewById(R.id.actt);
-
-        goodbad = findViewById(R.id.goodbad);
         resultt = findViewById(R.id.goodworse);
         distt = findViewById(R.id.distanceTxtView);
 
@@ -155,9 +146,9 @@ public class Game extends AppCompatActivity {
         rt.setText(red + "");
         gt.setText(green + "");
         bt.setText(blue + "");
-        rv.setText("Your Predicted Red Value:");
-        gv.setText("Your Predicted Green Value:");
-        bv.setText("Your Predicted Blue Value:");
+        rv.setText("Red Guess");
+        gv.setText("Green Guess");
+        bv.setText("Blue Guess");
 
         actualtv.setVisibility(View.VISIBLE);
         rt.setVisibility(View.VISIBLE);
@@ -180,15 +171,12 @@ public class Game extends AppCompatActivity {
 
         if (dist < avg) {
             resultt.setText("Better than your average");
-            goodbad.setImageResource(R.drawable.smile);
             distt.setText("Your guess was a distance of " + dist + " off.");
         } else {
             resultt.setText("Worse than your average!");
-            goodbad.setImageResource(R.drawable.frown);
             distt.setText("Your guess was a distance of " + dist + " off.");
         }
         resultt.setVisibility(View.VISIBLE);
-        goodbad.setVisibility(View.VISIBLE);
         distt.setVisibility(View.VISIBLE);
 
         rs.add(red);
@@ -205,7 +193,6 @@ public class Game extends AppCompatActivity {
         menu.setVisibility(View.INVISIBLE);
         next.setVisibility(View.INVISIBLE);
         resultt.setVisibility(View.INVISIBLE);
-        goodbad.setVisibility(View.INVISIBLE);
         distt.setVisibility(View.INVISIBLE);
 
         rv.setText("Red Guess");
