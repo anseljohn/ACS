@@ -4,22 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".CreateAccount">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="121dp"
         android:layout_marginEnd="293dp"
         android:layout_marginRight="293dp"
-        android:text="Password"
-        app:layout_constraintBottom_toTopOf="@+id/cpass"
+        android:text="Username"
+        app:layout_constraintBottom_toTopOf="@+id/cuser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cuser" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/cuser"
+        android:layout_width="301dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="140dp"
+        android:ems="10"
+        android:hint="Type your username"
+        android:includeFontPadding="true"
+        android:inputType="textPersonName"
+        android:paddingLeft="15sp"
+        android:paddingBottom="18sp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/cpass"
@@ -34,54 +51,70 @@
         android:paddingBottom="18sp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/cuser"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/cuser"
         app:layout_constraintTop_toBottomOf="@+id/cuser" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginRight="240dp"
+        android:text="Confirm Password"
+        app:layout_constraintBottom_toTopOf="@+id/cconf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cpass" />
 
     <Button
         android:id="@+id/createBut"
         android:layout_width="256dp"
         android:layout_height="36dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/button"
-        android:text="Login"
+        android:text="create account"
         android:textColor="@android:color/white"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="@+id/cpass"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="@+id/cpass"
         app:layout_constraintTop_toBottomOf="@+id/cpass" />
 
     <EditText
-        android:id="@+id/cuser"
+        android:id="@+id/cconf"
         android:layout_width="301dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="204dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="124dp"
         android:ems="10"
-        android:hint="Type your username"
+        android:hint="Re-type your password"
         android:includeFontPadding="true"
         android:inputType="textPersonName"
         android:paddingLeft="15sp"
         android:paddingBottom="18sp"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/cuser"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cuser"
+        app:layout_constraintTop_toBottomOf="@+id/cuser" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="185dp"
-        android:layout_marginEnd="291dp"
-        android:layout_marginRight="291dp"
-        android:text="Username"
-        app:layout_constraintBottom_toTopOf="@+id/cuser"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="295dp"
+        android:layout_marginRight="295dp"
+        android:text="Password"
+        app:layout_constraintBottom_toTopOf="@+id/cpass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cuser" />
 
     <TextView
         android:id="@+id/already"
