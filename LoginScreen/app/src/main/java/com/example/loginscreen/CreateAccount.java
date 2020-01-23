@@ -2,13 +2,16 @@ package com.example.loginscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.graphics.Paint;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -46,17 +49,26 @@ public class CreateAccount extends AppCompatActivity {
         createAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User u = new User(pass.getText().toString(), passConf.getText().toString());
-                ConfirmType returned = checkAccount(u);
-                if (returned == ConfirmType.VALID) {
+//                String username =
+                String password = pass.getText().toString();
+                String confPass = passConf.getText().toString();
+                Object[] valid = checkAccount("test", password, confPass);
+                if ((Boolean) valid[0]) {
+
+                    User u = new User(password, confPass);
                     Gson gson = new Gson();
                     String json = gson.toJson(u);
                     try {
-                        FileWriter file = new FileWriter("accounts.json");
-                        file.write(json);
+                        SharedPreferences  mPrefs = getPreferences(MODE_PRIVATE);
+                        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                        prefsEditor.putString(u.username, json);
+                        prefsEditor.commit();
+                        Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                } else {
+                    Toast.makeText(getApplicationContext(), "NOT WORKING", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -71,26 +83,15 @@ public class CreateAccount extends AppCompatActivity {
         });
     }
 
-    public boolean checkAccount(User u) {
-        boolean valid = false;
-        ConfirmType cf = null;
-        String password = pass.getText().toString();
-        String confPass = passConf.getText().toString();
+    public Object[] checkAccount(String username, String password, String confPass) {
 
         if (! confPass.equals(password)) {
-            return false;
+            return new Object[]{false, ConfirmType.CONF_PASS} ;
         }
-
         if (! password.matches("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z]{5,10}")) {
-            return false;
+            return new Object[]{false, ConfirmType.PASS_REQ};
         }
 
-        if (cf == null) {
-            cf = ConfirmType.VALID;
-        }
-
-
-
-        return false;
+        return new Object[]{true};
     }
 }
