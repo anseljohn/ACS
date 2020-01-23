@@ -19,10 +19,10 @@ public class Scores extends AppCompatActivity {
     private static ArrayList<Integer> bs;
     private static ArrayList<Integer> gs;
     private static ArrayList<Double> ds;
-
+    private double avg;
     private LinearLayout lays;
     private TextView avgTxt;
-    private double avg;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class Scores extends AppCompatActivity {
             update();
         }
         catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
@@ -76,7 +77,6 @@ public class Scores extends AppCompatActivity {
     public static ArrayList<Integer> getrs() {
         return rs;
     }
-
     public static ArrayList<Integer> getrgs() {
         return gs;
     }

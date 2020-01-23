@@ -20,12 +20,16 @@ import java.util.ArrayList;
 
 public class Game extends AppCompatActivity {
 
-    ArrayList<EditText> colors = new ArrayList<>();
     boolean[] filled = new boolean[]{false, false, false};
     static ArrayList<Integer> rs;
     static ArrayList<Integer> gs;
     static ArrayList<Integer> bs;
     static ArrayList<Double> ds;
+    double avg;
+    int red;
+    int green;
+    int blue;
+    ArrayList<EditText> colors = new ArrayList<>();
     EditText re;
     EditText ge;
     EditText be;
@@ -43,10 +47,6 @@ public class Game extends AppCompatActivity {
     Button next;
     ConstraintLayout bg;
     ImageView thumb;
-    double avg;
-    int red;
-    int green;
-    int blue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +65,7 @@ public class Game extends AppCompatActivity {
         for (final EditText e : colors) {
             e.addTextChangedListener(new TextWatcher() {
                 @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -95,9 +93,7 @@ public class Game extends AppCompatActivity {
                 }
 
                 @Override
-                public void afterTextChanged(Editable s) {
-
-                }
+                public void afterTextChanged(Editable s) { }
             });
         }
 
@@ -140,7 +136,7 @@ public class Game extends AppCompatActivity {
 
     }
 
-    public void subOnClick(View v) {
+    public void submit(View v) {
         System.out.println(re.getText().toString());
 
         rt.setText(red + "");
