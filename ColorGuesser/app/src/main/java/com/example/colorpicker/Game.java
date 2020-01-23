@@ -42,6 +42,7 @@ public class Game extends AppCompatActivity {
     Button menu;
     Button next;
     ConstraintLayout bg;
+    ImageView thumb;
     double avg;
     int red;
     int green;
@@ -103,25 +104,23 @@ public class Game extends AppCompatActivity {
         rv = findViewById(R.id.rgt);
         gv = findViewById(R.id.ggt);
         bv = findViewById(R.id.bgt);
-
         rt = findViewById(R.id.ra);
         gt = findViewById(R.id.ga);
         bt = findViewById(R.id.ba);
-
         menu = findViewById(R.id.menu);
         next = findViewById(R.id.next);
         menu = findViewById(R.id.menu);
-
         submit = findViewById(R.id.submit);
         submit.setEnabled(false);
         actualtv = findViewById(R.id.actt);
         resultt = findViewById(R.id.goodworse);
         distt = findViewById(R.id.distanceTxtView);
-
+        thumb = findViewById(R.id.imageView);
         red = (int) (Math.random() * 256);
         green = (int) (Math.random() * 256);
         blue = (int) (Math.random() * 256);
         bg.setBackgroundColor(Color.rgb(red, green, blue));
+
 
         update();
 
@@ -143,6 +142,7 @@ public class Game extends AppCompatActivity {
 
     public void subOnClick(View v) {
         System.out.println(re.getText().toString());
+
         rt.setText(red + "");
         gt.setText(green + "");
         bt.setText(blue + "");
@@ -169,13 +169,19 @@ public class Game extends AppCompatActivity {
         }
         avg = avg / ds.size();
 
-        if (dist < avg) {
-            resultt.setText("Better than your average");
-            distt.setText("Your guess was a distance of " + dist + " off.");
+        if (rs.size() > 0) {
+            if (dist < avg) {
+                thumb.setImageResource(R.drawable.up);
+                resultt.setText("Better than your average");
+            } else {
+                thumb.setImageResource(R.drawable.down);
+                resultt.setText("Worse than your average!");
+            }
+            thumb.setVisibility(View.VISIBLE);
         } else {
-            resultt.setText("Worse than your average!");
-            distt.setText("Your guess was a distance of " + dist + " off.");
+            resultt.setText("You have no previous scores.");
         }
+        distt.setText("Your guess was a distance of " + dist + " off.");
         resultt.setVisibility(View.VISIBLE);
         distt.setVisibility(View.VISIBLE);
 
@@ -194,6 +200,7 @@ public class Game extends AppCompatActivity {
         next.setVisibility(View.INVISIBLE);
         resultt.setVisibility(View.INVISIBLE);
         distt.setVisibility(View.INVISIBLE);
+        thumb.setVisibility(View.INVISIBLE);
 
         rv.setText("Red Guess");
         gv.setText("Green Guess");

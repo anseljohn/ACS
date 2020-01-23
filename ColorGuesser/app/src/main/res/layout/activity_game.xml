@@ -17,7 +17,7 @@
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="1.5"
+        android:shadowRadius="2"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,52 +31,68 @@
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="1.5"
+        android:shadowRadius="5"
         android:text="Red Guess"
-        android:textColor="#ff0000"
+        android:textColor="#000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/rg"
         app:layout_constraintStart_toStartOf="@+id/rg" />
 
     <EditText
-        android:id="@+id/bg"
-        android:layout_width="100sp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:inputType="numberSigned"
-        android:shadowColor="#000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="1.5"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toEndOf="@+id/gg"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/gg"
-        app:layout_constraintTop_toBottomOf="@+id/gg" />
-
-    <EditText
         android:id="@+id/gg"
         android:layout_width="100sp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="numberSigned"
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="1.5"
+        android:shadowRadius="2"
         android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="@+id/rg"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/rg"
         app:layout_constraintTop_toBottomOf="@+id/rg" />
 
+    <TextView
+        android:id="@+id/ggt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
+        android:text="Green Guess"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/gg"
+        app:layout_constraintStart_toStartOf="@+id/gg" />
+
+    <TextView
+        android:id="@+id/actt"
+        android:layout_width="81dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:rotation="45"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:text="Actual Values:"
+        android:textColor="#fff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/rgt"
+        app:layout_constraintEnd_toEndOf="@+id/ra"
+        app:layout_constraintHorizontal_bias="0.339"
+        app:layout_constraintStart_toStartOf="@+id/ra" />
+
     <EditText
         android:id="@+id/rg"
         android:layout_width="100sp"
         android:layout_height="44dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:ems="10"
@@ -84,12 +100,66 @@
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="1.5"
+        android:shadowRadius="2"
         android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/ra"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:rotation="45"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textColor="#fff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/rg"
+        app:layout_constraintEnd_toEndOf="@+id/ga"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ga"
+        app:layout_constraintTop_toBottomOf="@+id/rgt"
+        app:layout_constraintVertical_bias="0.72" />
+
+    <TextView
+        android:id="@+id/ba"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:rotation="45"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textColor="#fff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toEndOf="@+id/bg"
+        app:layout_constraintTop_toBottomOf="@+id/bgt"
+        app:layout_constraintVertical_bias="0.692" />
+
+    <TextView
+        android:id="@+id/ga"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:rotation="45"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textColor="#fff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/gg"
+        app:layout_constraintEnd_toEndOf="@+id/ba"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ba"
+        app:layout_constraintTop_toBottomOf="@+id/ggt"
+        app:layout_constraintVertical_bias="0.884" />
 
     <TextView
         android:id="@+id/bgt"
@@ -98,27 +168,29 @@
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="1.5"
+        android:shadowRadius="5"
         android:text="Blue Guess"
-        android:textColor="#0000ff"
+        android:textColor="#000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/bg"
         app:layout_constraintStart_toStartOf="@+id/bg" />
 
-    <TextView
-        android:id="@+id/ggt"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/bg"
+        android:layout_width="100sp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:inputType="numberSigned"
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="1.5"
-        android:text="Green Guess"
-        android:textColor="#00ff00"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/gg"
-        app:layout_constraintStart_toStartOf="@+id/gg" />
+        android:shadowRadius="2"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="@+id/gg"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gg"
+        app:layout_constraintTop_toBottomOf="@+id/gg" />
 
     <Button
         android:id="@+id/submit"
@@ -128,41 +200,16 @@
         android:onClick="subOnClick"
         android:text="Score"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg" />
-
-    <Button
-        android:id="@+id/menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginBottom="25dp"
-        android:onClick="menu"
-        android:text="Main Menu"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="25dp"
-        android:onClick="next"
-        android:text="Next"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:gravity="left"
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
@@ -172,75 +219,17 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bg" />
-
-    <TextView
-        android:id="@+id/ra"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:shadowColor="#000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="1.5"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="@+id/rg"
-        app:layout_constraintEnd_toEndOf="@+id/ga"
-        app:layout_constraintStart_toStartOf="@+id/ga"
-        app:layout_constraintTop_toBottomOf="@+id/rgt" />
-
-    <TextView
-        android:id="@+id/ga"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:shadowColor="#000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="1.5"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="@+id/gg"
-        app:layout_constraintEnd_toEndOf="@+id/ba"
-        app:layout_constraintStart_toStartOf="@+id/ba"
-        app:layout_constraintTop_toBottomOf="@+id/ggt" />
-
-    <TextView
-        android:id="@+id/ba"
-        android:layout_width="25dp"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:shadowColor="#000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="1.5"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="@+id/bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bg"
-        app:layout_constraintTop_toBottomOf="@+id/bgt" />
-
-    <TextView
-        android:id="@+id/actt"
-        android:layout_width="81dp"
-        android:layout_height="33dp"
-        android:gravity="center"
-        android:text="Actual Values:"
-        android:visibility="invisible"
-        android:shadowColor="#000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="1.5"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="@+id/rgt"
-        app:layout_constraintEnd_toEndOf="@+id/ra"
-        app:layout_constraintStart_toStartOf="@+id/ra" />
-
+        app:layout_constraintTop_toBottomOf="@+id/bg"
+        app:layout_constraintVertical_bias="0.512" />
 
     <TextView
         android:id="@+id/goodworse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="246dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="24dp"
+        android:gravity="left"
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
@@ -248,32 +237,80 @@
         android:text="TextView"
         android:textColor="#fff"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/submit"
-        app:layout_constraintStart_toStartOf="@+id/submit"
-        app:layout_constraintTop_toBottomOf="@+id/submit" />
+        app:layout_constraintEnd_toEndOf="@+id/distanceTxtView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/distanceTxtView"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTxtView" />
 
     <TextView
         android:id="@+id/distanceTxtView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="281dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="28dp"
+        android:gravity="left"
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="1.5"
         android:textColor="#fff"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/submit"
-        app:layout_constraintStart_toStartOf="@+id/submit"
-        app:layout_constraintTop_toTopOf="@+id/submit" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg" />
+
+    <Button
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="80dp"
+        android:onClick="menu"
+        android:text="Main Menu"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:onClick="next"
+        android:text="Next"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/menu"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/menu"
+        app:layout_constraintTop_toBottomOf="@+id/menu"
+        app:layout_constraintVertical_bias="1.0" />
 
     <View
         android:id="@+id/view"
-        android:layout_width="427dp"
-        android:layout_height="102dp"
+        android:layout_width="428dp"
+        android:layout_height="148dp"
         android:background="@color/grayBottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/goodworse"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="116dp"
+        android:layout_height="86dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTxtView"
+        app:layout_constraintVertical_bias="0.929"
+        app:srcCompat="@drawable/up" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
