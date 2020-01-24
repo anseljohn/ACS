@@ -23,9 +23,9 @@
 
     <EditText
         android:id="@+id/cuser"
-        android:layout_width="301dp"
+        android:layout_width="280dp"
         android:layout_height="49dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="148dp"
         android:ems="10"
         android:hint="Type your username"
         android:includeFontPadding="true"
@@ -34,24 +34,24 @@
         android:paddingBottom="18sp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/cpass"
-        android:layout_width="301dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="280dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Type your password"
         android:includeFontPadding="true"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:paddingLeft="15sp"
         android:paddingBottom="18sp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/cuser"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/cuser"
         app:layout_constraintTop_toBottomOf="@+id/cuser" />
 
@@ -67,32 +67,20 @@
         android:text="Confirm Password"
         app:layout_constraintBottom_toTopOf="@+id/cconf"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cpass" />
-
-    <Button
-        android:id="@+id/createBut"
-        android:layout_width="256dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/button"
-        android:text="create account"
-        android:textColor="@android:color/white"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/cpass"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/cpass"
-        app:layout_constraintTop_toBottomOf="@+id/cpass" />
+        app:layout_constraintTop_toBottomOf="@+id/cpass"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/cconf"
-        android:layout_width="301dp"
+        android:layout_width="280dp"
         android:layout_height="47dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="132dp"
         android:ems="10"
         android:hint="Re-type your password"
         android:includeFontPadding="true"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:paddingLeft="15sp"
         android:paddingBottom="18sp"
         android:textSize="14sp"
@@ -100,6 +88,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/cuser"
         app:layout_constraintTop_toBottomOf="@+id/cuser" />
+
+    <Button
+        android:id="@+id/createBut"
+        android:layout_width="256dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="78dp"
+        android:layout_marginBottom="284dp"
+        android:background="@drawable/button"
+        android:text="create account"
+        android:textColor="@android:color/white"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -126,5 +131,32 @@
         app:layout_constraintEnd_toEndOf="@+id/createBut"
         app:layout_constraintStart_toStartOf="@+id/createBut"
         app:layout_constraintTop_toBottomOf="@+id/createBut" />
+
+    <CheckBox
+        android:id="@+id/showPass"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="154dp"
+        android:layout_marginLeft="154dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="2dp"
+        android:visibility="invisible"
+        android:text="Show"
+        app:layout_constraintBottom_toTopOf="@+id/cconf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/cpass"
+        app:layout_constraintVertical_bias="0.06999999" />
+
+    <TextView
+        android:id="@+id/errors"
+        android:layout_width="284dp"
+        android:layout_height="183dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/createBut"
+        app:layout_constraintStart_toStartOf="@+id/createBut"
+        app:layout_constraintTop_toTopOf="@+id/already" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
