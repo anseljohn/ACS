@@ -35,12 +35,7 @@ public class CreateAccount extends AppCompatActivity {
     EditText passConf;
     TextView errors;
     CheckBox showPass;
-
-    enum ConfirmType {
-        PASS_REQ,
-        CONF_PASS,
-        USER
-    }
+    EditText user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +48,7 @@ public class CreateAccount extends AppCompatActivity {
         passConf = findViewById(R.id.cconf);
         errors = findViewById(R.id.errors);
         showPass = findViewById(R.id.showPass);
+        user = findViewById(R.id.cuser);
 
         already.setPaintFlags(already.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         already.setText("Already have an account?");
@@ -60,10 +56,10 @@ public class CreateAccount extends AppCompatActivity {
         createAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String username =
+                String username = user.getText().toString();
                 String password = pass.getText().toString();
                 String confPass = passConf.getText().toString();
-                boolean valid = checkAccount("test", password, confPass);
+                boolean valid = checkAccount(username, password, confPass);
                 if (valid) {
                     User u = new User(password, confPass);
                     Gson gson = new Gson();
@@ -131,20 +127,20 @@ public class CreateAccount extends AppCompatActivity {
 
     public boolean checkAccount(String username, String password, String confPass) {
 
-        boolean valid = false;
+        boolean valid = true;
+        if (User.exists(username)) {
+            errors.setText("Username '" + username + "' already exists!");
+            return false;
+        }
 
         if (username.length() < 1 || password.length() < 1 || confPass.length() < 1) {
             errors.setText("Please fill out all the fields.");
             return false;
-        } else {
-            valid = true;
         }
 
         if (! confPass.equals(password)) {
             errors.setText("Passwords do not match.");
             return false;
-        } else {
-            valid = true;
         }
 
         String passError = "Your password does not meet the following password requirements.\nIt must contain at least:\n";
@@ -167,12 +163,6 @@ public class CreateAccount extends AppCompatActivity {
         } if (passEr) {
             errors.setText(passError);
             return false;
-        } else {
-            valid = true;
-        }
-
-        if (valid) {
-//            Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
         }
 
         return valid;

@@ -72,5 +72,9 @@ public class User {
         }
         return null;
     }
+
+    public static boolean exists(String username) {
+
+    }
 }
 
