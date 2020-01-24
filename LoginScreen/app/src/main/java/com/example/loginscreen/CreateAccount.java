@@ -65,7 +65,6 @@ public class CreateAccount extends AppCompatActivity {
                 String confPass = passConf.getText().toString();
                 boolean valid = checkAccount("test", password, confPass);
                 if (valid) {
-
                     User u = new User(password, confPass);
                     Gson gson = new Gson();
                     String json = gson.toJson(u);
@@ -73,18 +72,11 @@ public class CreateAccount extends AppCompatActivity {
                         SharedPreferences  mPrefs = getPreferences(MODE_PRIVATE);
                         SharedPreferences.Editor prefsEditor = mPrefs.edit();
                         prefsEditor.putString(u.username, json);
-                        prefsEditor.commit();
+                        prefsEditor.apply();
                         Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                } else {
-//                    if (valid[1] == ConfirmType.PASS_REQ) {
-//                    } else if (valid[1] == ConfirmType.CONF_PASS) {
-//                        Toast.makeText(getApplicationContext(), "Passwords don't match", Toast.LENGTH_SHORT).show();
-//                    } else {
-//                        Toast.makeText(getApplicationContext(), "User already exists", Toast.LENGTH_SHORT).show();
-//                    }
                 }
             }
         });
@@ -100,9 +92,7 @@ public class CreateAccount extends AppCompatActivity {
 
         pass.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -112,9 +102,7 @@ public class CreateAccount extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) { }
         });
 
         showPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -184,7 +172,7 @@ public class CreateAccount extends AppCompatActivity {
         }
 
         if (valid) {
-            Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
         }
 
         return valid;
