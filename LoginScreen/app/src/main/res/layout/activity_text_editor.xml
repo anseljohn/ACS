@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TextEditor">
+
+    <Button
+        android:id="@+id/next2"
+        android:layout_width="256dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="89dp"
+        android:background="@drawable/button"
+        android:text="save"
+        android:textColor="@android:color/white"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="176dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button"
+        android:text="Log out"
+        android:textColor="@android:color/white"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next2" />
+
+    <EditText
+        android:id="@+id/text"
+        android:layout_width="319dp"
+        android:layout_height="505dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="46dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

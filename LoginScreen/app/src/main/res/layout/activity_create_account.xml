@@ -16,13 +16,13 @@
         android:layout_marginEnd="293dp"
         android:layout_marginRight="293dp"
         android:text="Username"
-        app:layout_constraintBottom_toTopOf="@+id/cuser"
+        app:layout_constraintBottom_toTopOf="@+id/user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/cuser"
+        android:id="@+id/user"
         android:layout_width="280dp"
         android:layout_height="49dp"
         android:layout_marginTop="148dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/cpass"
+        android:id="@+id/pass"
         android:layout_width="280dp"
         android:layout_height="46dp"
         android:layout_marginTop="44dp"
@@ -50,10 +50,10 @@
         android:paddingLeft="15sp"
         android:paddingBottom="18sp"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/cuser"
+        app:layout_constraintEnd_toEndOf="@+id/user"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/cuser"
-        app:layout_constraintTop_toBottomOf="@+id/cuser" />
+        app:layout_constraintStart_toStartOf="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <TextView
         android:id="@+id/textView2"
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cpass"
+        app:layout_constraintTop_toBottomOf="@+id/pass"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
@@ -84,10 +84,10 @@
         android:paddingLeft="15sp"
         android:paddingBottom="18sp"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/cuser"
+        app:layout_constraintEnd_toEndOf="@+id/user"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/cuser"
-        app:layout_constraintTop_toBottomOf="@+id/cuser" />
+        app:layout_constraintStart_toStartOf="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <Button
         android:id="@+id/createBut"
@@ -116,10 +116,10 @@
         android:layout_marginEnd="295dp"
         android:layout_marginRight="295dp"
         android:text="Password"
-        app:layout_constraintBottom_toTopOf="@+id/cpass"
+        app:layout_constraintBottom_toTopOf="@+id/pass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cuser" />
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <TextView
         android:id="@+id/already"
@@ -142,7 +142,7 @@
         app:layout_constraintBottom_toTopOf="@+id/createBut"
         app:layout_constraintEnd_toEndOf="@+id/showPass"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/cpass"
+        app:layout_constraintStart_toEndOf="@+id/pass"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.052" />
 
@@ -157,11 +157,11 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/showConf"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cpass"
-        app:layout_constraintTop_toBottomOf="@+id/cuser" />
+        app:layout_constraintStart_toEndOf="@+id/pass"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <TextView
-        android:id="@+id/errors"
+        android:id="@+id/errors2"
         android:layout_width="284dp"
         android:layout_height="183dp"
         android:layout_marginTop="32dp"

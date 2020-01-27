@@ -16,30 +16,30 @@
         android:layout_marginEnd="293dp"
         android:layout_marginRight="293dp"
         android:text="Password"
-        app:layout_constraintBottom_toTopOf="@+id/cpass"
+        app:layout_constraintBottom_toTopOf="@+id/pass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cuser" />
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <EditText
-        android:id="@+id/cpass"
-        android:layout_width="301dp"
-        android:layout_height="47dp"
+        android:id="@+id/pass"
+        android:layout_width="279dp"
+        android:layout_height="49dp"
         android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Type your password"
         android:includeFontPadding="true"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:paddingLeft="15sp"
         android:paddingBottom="18sp"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/cuser"
+        app:layout_constraintEnd_toEndOf="@+id/user"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/cuser"
-        app:layout_constraintTop_toBottomOf="@+id/cuser" />
+        app:layout_constraintStart_toStartOf="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <Button
-        android:id="@+id/createBut"
+        android:id="@+id/next"
         android:layout_width="256dp"
         android:layout_height="36dp"
         android:layout_marginTop="20dp"
@@ -47,14 +47,14 @@
         android:text="Login"
         android:textColor="@android:color/white"
         android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/cpass"
-        app:layout_constraintStart_toStartOf="@+id/cpass"
-        app:layout_constraintTop_toBottomOf="@+id/cpass" />
+        app:layout_constraintEnd_toEndOf="@+id/pass"
+        app:layout_constraintStart_toStartOf="@+id/pass"
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
     <EditText
-        android:id="@+id/cuser"
-        android:layout_width="301dp"
-        android:layout_height="49dp"
+        android:id="@+id/user"
+        android:layout_width="280dp"
+        android:layout_height="46dp"
         android:layout_marginTop="204dp"
         android:ems="10"
         android:hint="Type your username"
@@ -78,20 +78,49 @@
         android:layout_marginEnd="291dp"
         android:layout_marginRight="291dp"
         android:text="Username"
-        app:layout_constraintBottom_toTopOf="@+id/cuser"
+        app:layout_constraintBottom_toTopOf="@+id/user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/errors2"
+        android:layout_width="309dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next" />
 
     <TextView
         android:id="@+id/already"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/createBut"
-        app:layout_constraintStart_toStartOf="@+id/createBut"
-        app:layout_constraintTop_toBottomOf="@+id/createBut" />
+        android:layout_marginStart="205dp"
+        android:layout_marginTop="415dp"
+        android:layout_marginEnd="206dp"
+        android:layout_marginBottom="297dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/showpa"
+        android:layout_width="74dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="118dp"
+        android:text="Show"
+        app:layout_constraintBottom_toTopOf="@+id/errors2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pass"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

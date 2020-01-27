@@ -40,11 +40,11 @@ public class CreateAccount extends AppCompatActivity {
 
         createAcc = findViewById(R.id.createBut);
         already = findViewById(R.id.already);
-        pass = findViewById(R.id.cpass);
+        pass = findViewById(R.id.pass);
         passConf = findViewById(R.id.cconf);
-        errors = findViewById(R.id.errors);
+        errors = findViewById(R.id.errors2);
         showPass = findViewById(R.id.showPass);
-        user = findViewById(R.id.cuser);
+        user = findViewById(R.id.user);
         showConfPass = findViewById(R.id.showConf);
 
         already.setPaintFlags(already.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -178,12 +178,12 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     public boolean userExists(String username) {
-        return getSharedPreferences("storage", MODE_PRIVATE).contains(username);
+        return getSharedPreferences("accounts", MODE_PRIVATE).contains(username);
     }
 
     public User getUser(String username) {
         Gson gson = new Gson();
-        return gson.fromJson(getSharedPreferences("storage", MODE_PRIVATE).getString(username, "notauser"), User.class);
+        return gson.fromJson(getSharedPreferences("accounts", MODE_PRIVATE).getString(username, "notauser"), User.class);
     }
 
     public void everything(String username, String password, String confPass) {
@@ -193,10 +193,12 @@ public class CreateAccount extends AppCompatActivity {
             Gson gson = new Gson();
             String json = gson.toJson(u);
 
-            SharedPreferences sharedPreferences = getSharedPreferences("storage", MODE_PRIVATE);
+            SharedPreferences sharedPreferences = getSharedPreferences("accounts", MODE_PRIVATE);
             sharedPreferences.edit().putString(username, json).commit();
             Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
-            errors.setText(getUser(username).username);
+
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
         }
     }
 }
