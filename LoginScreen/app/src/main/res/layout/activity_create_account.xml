@@ -133,22 +133,32 @@
         app:layout_constraintTop_toBottomOf="@+id/createBut" />
 
     <CheckBox
-        android:id="@+id/showPass"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="154dp"
-        android:layout_marginLeft="154dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="2dp"
-        android:visibility="invisible"
+        android:id="@+id/showConf"
+        android:layout_width="68dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="328dp"
         android:text="Show"
-        app:layout_constraintBottom_toTopOf="@+id/cconf"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/createBut"
+        app:layout_constraintEnd_toEndOf="@+id/showPass"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cpass"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <CheckBox
+        android:id="@+id/showPass"
+        android:layout_width="69dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="39dp"
+        android:text="Show"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/showConf"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/cpass"
-        app:layout_constraintVertical_bias="0.06999999" />
+        app:layout_constraintStart_toEndOf="@+id/cpass"
+        app:layout_constraintTop_toBottomOf="@+id/cuser" />
 
     <TextView
         android:id="@+id/errors"

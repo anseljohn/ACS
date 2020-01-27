@@ -2,12 +2,10 @@ package com.example.loginscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -22,10 +20,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import org.json.JSONObject;
-import org.w3c.dom.Text;
-
-import java.io.FileWriter;
+import java.io.File;
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -36,6 +31,7 @@ public class CreateAccount extends AppCompatActivity {
     TextView errors;
     CheckBox showPass;
     EditText user;
+    CheckBox showConfPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +45,7 @@ public class CreateAccount extends AppCompatActivity {
         errors = findViewById(R.id.errors);
         showPass = findViewById(R.id.showPass);
         user = findViewById(R.id.cuser);
+        showConfPass = findViewById(R.id.showConf);
 
         already.setPaintFlags(already.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         already.setText("Already have an account?");
@@ -59,21 +56,10 @@ public class CreateAccount extends AppCompatActivity {
                 String username = user.getText().toString();
                 String password = pass.getText().toString();
                 String confPass = passConf.getText().toString();
-                boolean valid = checkAccount(username, password, confPass);
-                if (valid) {
-                    User u = new User(password, confPass);
-                    Gson gson = new Gson();
-                    String json = gson.toJson(u);
-                    try {
-                        SharedPreferences  mPrefs = getPreferences(MODE_PRIVATE);
-                        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-                        prefsEditor.putString(u.username, json);
-                        prefsEditor.apply();
-                        Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+
+                File file = new File(getFilesDir(),"users.json");
+
+                everything(username, password, confPass);
             }
         });
 
@@ -94,6 +80,8 @@ public class CreateAccount extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (pass.getText().length() > 0) {
                     showPass.setVisibility(View.VISIBLE);
+                } else {
+                    showPass.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -101,25 +89,46 @@ public class CreateAccount extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
 
+        passConf.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (passConf.getText().length() > 0) {
+                    showConfPass.setVisibility(View.VISIBLE);
+                } else {
+                    showConfPass.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
+
         showPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                        pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                        pass.setSelection(pass.length());
-
-                    if (passConf.getText().length() > 0) {
-                        passConf.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                        passConf.setSelection(pass.length());
-                    }
+                    pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    pass.setSelection(pass.length());
                 } else {
-                        pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                        pass.setSelection(pass.length());
+                    pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    pass.setSelection(pass.length());
+                }
+            }
+        });
 
-                    if (passConf.getText().length() > 0) {
-                        passConf.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                        passConf.setSelection(pass.length());
-                    }
+        showConfPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    passConf.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    passConf.setSelection(passConf.length());
+                } else {
+                    passConf.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    passConf.setSelection(passConf.length());
                 }
             }
         });
@@ -128,7 +137,7 @@ public class CreateAccount extends AppCompatActivity {
     public boolean checkAccount(String username, String password, String confPass) {
 
         boolean valid = true;
-        if (User.exists(username)) {
+        if (userExists(username)) {
             errors.setText("Username '" + username + "' already exists!");
             return false;
         }
@@ -166,5 +175,28 @@ public class CreateAccount extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    public boolean userExists(String username) {
+        return getSharedPreferences("storage", MODE_PRIVATE).contains(username);
+    }
+
+    public User getUser(String username) {
+        Gson gson = new Gson();
+        return gson.fromJson(getSharedPreferences("storage", MODE_PRIVATE).getString(username, "notauser"), User.class);
+    }
+
+    public void everything(String username, String password, String confPass) {
+        boolean valid = checkAccount(username, password, confPass);
+        if (valid) {
+            User u = new User(username, password);
+            Gson gson = new Gson();
+            String json = gson.toJson(u);
+
+            SharedPreferences sharedPreferences = getSharedPreferences("storage", MODE_PRIVATE);
+            sharedPreferences.edit().putString(username, json).commit();
+            Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
+            errors.setText(getUser(username).username);
+        }
     }
 }
